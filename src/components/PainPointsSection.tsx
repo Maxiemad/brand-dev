@@ -71,7 +71,7 @@ const PainPointsSection: React.FC = () => {
           >
             <span>👉</span>
             <span className="font-semibold text-teal-600">It's time to shift from chaos to clarity.</span>
-            <span className="font-semibold text-teal-600">It's time to shift from chaos to clarity.</span>
+            
           </motion.p>
           <motion.div
             className="w-16 sm:w-24 h-1 bg-gradient-to-r from-teal-600 to-green-500 mx-auto rounded-full"
