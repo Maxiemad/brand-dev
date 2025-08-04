@@ -130,16 +130,16 @@ const HeroSection: React.FC = () => {
         {/* Right Column - Video */}
         <motion.div className="relative mt-8 lg:mt-0 -mt-24 lg:-mt-28">
           {/* Video container with subtle green border */}
-          <div className="relative rounded-3xl shadow-2xl w-full h-full aspect-video overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
+          <div className="relative rounded-3xl shadow-2xl w-full aspect-video overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
             <motion.div
-              className="w-full h-full aspect-video bg-black/50 rounded-3xl relative overflow-hidden"
+              className="w-full h-full bg-black/50 rounded-3xl relative overflow-hidden"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               {/* Vimeo Video Embed */}
               <iframe
                 ref={iframeRef}
-                src="https://player.vimeo.com/video/1106920945?h=0&autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=0&playsinline=1"
+                src="https://player.vimeo.com/video/1106920945?h=0&autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=1&playsinline=1&webkit-playsinline=1"
                 className="w-full h-full rounded-3xl"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"

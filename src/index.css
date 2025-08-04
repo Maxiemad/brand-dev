@@ -45,5 +45,20 @@
       -webkit-backface-visibility: hidden;
       -webkit-perspective: 1000px;
     }
+    
+    /* iOS video handling */
+    iframe, video {
+      max-width: 100% !important;
+      -webkit-playsinline: 1;
+      playsinline: 1;
+    }
+    
+    /* Desktop video handling */
+    @media (min-width: 768px) {
+      iframe, video {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
   }
 }
