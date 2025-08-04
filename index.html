@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
     <title>GoToRetreats - Plan Your Retreat With Clarity, Confidence, and Zero Overwhelm</title>
     <meta name="description" content="Whether you're doing it yourself, need expert support, or want us to handle it all — we've got a path designed for you." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +16,16 @@
       * {
         cursor: none !important;
       }
+      /* iOS Safari compatibility */
+      @supports (-webkit-touch-callout: none) {
+        * {
+          cursor: auto !important;
+        }
+      }
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
     </style>
   </head>

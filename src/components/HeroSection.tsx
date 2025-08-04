@@ -139,7 +139,7 @@ const HeroSection: React.FC = () => {
               {/* Vimeo Video Embed */}
               <iframe
                 ref={iframeRef}
-                src="https://player.vimeo.com/video/1106920945?h=0&autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=0"
+                src="https://player.vimeo.com/video/1106920945?h=0&autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=0&playsinline=1"
                 className="w-full h-full rounded-3xl"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"

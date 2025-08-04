@@ -6,6 +6,14 @@ const CustomCursor: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // Check if device supports touch (iOS devices)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    // Don't show custom cursor on touch devices
+    if (isTouchDevice) {
+      return;
+    }
+
     let mouseX = 0;
     let mouseY = 0;
     let cursorX = 0;
@@ -25,10 +33,10 @@ const CustomCursor: React.FC = () => {
         dotY = mouseY;
         setVisible(true);
         if (cursorRef.current) {
-          cursorRef.current.style.transform = `translate3d(${cursorX - 9}px, ${cursorY - 9}px, 0)`;
+          cursorRef.current.style.transform = `translate(${cursorX - 9}px, ${cursorY - 9}px)`;
         }
         if (dotRef.current) {
-          dotRef.current.style.transform = `translate3d(${dotX - 3.5}px, ${dotY - 3.5}px, 0)`;
+          dotRef.current.style.transform = `translate(${dotX - 3.5}px, ${dotY - 3.5}px)`;
         }
         firstMove = false;
       }
@@ -41,10 +49,10 @@ const CustomCursor: React.FC = () => {
       dotY += (mouseY - dotY) * 0.38;
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${cursorX - 9}px, ${cursorY - 9}px, 0)`;
+        cursorRef.current.style.transform = `translate(${cursorX - 9}px, ${cursorY - 9}px)`;
       }
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${dotX - 3.5}px, ${dotY - 3.5}px, 0)`;
+        dotRef.current.style.transform = `translate(${dotX - 3.5}px, ${dotY - 3.5}px)`;
       }
       animationFrame = requestAnimationFrame(animate);
     };

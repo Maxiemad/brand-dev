@@ -39,7 +39,16 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
     };
     updateWidth();
     window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
+    
+    // iOS Safari specific: handle orientation change
+    window.addEventListener('orientationchange', () => {
+      setTimeout(updateWidth, 100);
+    });
+    
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+      window.removeEventListener('orientationchange', updateWidth);
+    };
   }, [items]);
 
   /**
