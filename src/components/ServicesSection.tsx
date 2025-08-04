@@ -23,7 +23,7 @@ const ServicesSection: React.FC = () => {
         "Emergency prep & risk management"
       ],
       buttonText: "Book a Free Call",
-      buttonColor: "bg-purple-600 hover:bg-purple-700"
+      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900"
     },
     {
       tier: "TIER 2",
@@ -45,7 +45,7 @@ const ServicesSection: React.FC = () => {
         "Free course (optional and subjected to Montana's availability)"
       ],
       buttonText: "Get the Toolkit – $199",
-      buttonColor: "bg-orange-600 hover:bg-orange-700",
+      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
       paymentLink: true
     },
     {
@@ -65,7 +65,7 @@ const ServicesSection: React.FC = () => {
         "Editable email templates included"
       ],
       buttonText: "Get Toolkit + Calls – $699",
-      buttonColor: "bg-teal-600 hover:bg-teal-700"
+      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900"
     }
   ];
 
@@ -240,6 +240,8 @@ const ServicesSection: React.FC = () => {
                           window.open('https://buy.stripe.com/00wbIT2PCaAA5Npafi77O01', '_blank');
                         } else if (plan.buttonText === "Get the Toolkit – $199") {
                           window.open('https://buy.stripe.com/7sYeV5ai4cII7Vx5Z277O00', '_blank');
+                        } else if (plan.buttonText === "Book a Free Call") {
+                          window.open('https://calendly.com/ashkairos_gotoretreats/30min', '_blank');
                         }
                       }}
                     >

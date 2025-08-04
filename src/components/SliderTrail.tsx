@@ -131,7 +131,7 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
         <button
           onClick={onCtaClick}
           aria-label={ctaText}
-          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full text-sm font-medium shadow-lg hover:scale-[1.02] transition-transform duration-200 focus:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+          className="inline-flex items-center px-6 py-3 bg-[#FFA947] text-gray-900 rounded-full text-sm font-medium shadow-lg hover:brightness-95 transition-transform duration-200 focus:outline-none focus-visible:ring focus-visible:ring-[#FFA947]/30"
         >
           {ctaText}
         </button>

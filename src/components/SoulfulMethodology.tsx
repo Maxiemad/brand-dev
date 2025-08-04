@@ -139,7 +139,7 @@ const SoulfulMethodology: React.FC = () => {
             href="https://calendly.com/avi-gotoretreats/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-blue-500 text-white rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-600 transition-all cursor-hover"
+            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-hover"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(37, 99, 235, 0.3)"

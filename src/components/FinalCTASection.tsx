@@ -80,7 +80,7 @@ const FinalCTASection: React.FC = () => {
             href="https://calendly.com/avi-gotoretreats/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl font-bold text-lg sm:text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-hover group"
+            className="inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 bg-[#FFA947] text-gray-900 rounded-2xl font-bold text-lg sm:text-xl shadow-2xl hover:brightness-95 transition-all duration-300 cursor-hover group"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.4)",
@@ -104,8 +104,7 @@ const FinalCTASection: React.FC = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent"
-              className="bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent"
+              className="text-gray-900"
               style={{
                 backgroundSize: '200% 200%',
               }}

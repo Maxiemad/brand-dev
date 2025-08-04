@@ -76,7 +76,7 @@ const Header: React.FC = () => {
               href="https://calendly.com/avi-gotoretreats/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 xl:px-4 py-2 text-sm xl:text-base bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors cursor-hover"
+              className="px-3 xl:px-4 py-2 text-sm xl:text-base bg-[#FFA947] text-gray-900 rounded-lg hover:brightness-95 transition-colors cursor-hover"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
                   href="https://calendly.com/avi-gotoretreats/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-4 py-3 bg-teal-500 text-white rounded-lg cursor-hover font-semibold text-lg"
+                  className="block w-full text-center px-4 py-3 bg-[#FFA947] text-gray-900 rounded-lg cursor-hover font-semibold text-lg"
                 >
                   Get Started
                 </a>

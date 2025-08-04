@@ -28,7 +28,7 @@ const ServicesSlider: React.FC = () => {
     <SliderTrail
       title="Services"
       items={servicesScrollItems}
-      ctaText="Explore Our Services"
+      ctaText="Explore Our Service Providers"
       onCtaClick={handleExploreServices}
       direction="rtl" // right-to-left
       loopDuration={30}

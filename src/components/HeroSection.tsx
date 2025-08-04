@@ -67,7 +67,6 @@ const HeroSection: React.FC = () => {
         >
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -85,7 +84,6 @@ const HeroSection: React.FC = () => {
 
           <motion.p
             className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
-            className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -100,7 +98,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.button
-              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-teal-600 text-white rounded-lg font-semibold text-base sm:text-lg hover:bg-teal-700 transition-all cursor-hover group w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-hover group w-full sm:w-auto"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(0, 140, 141, 0.3)"
@@ -130,9 +128,9 @@ const HeroSection: React.FC = () => {
         </motion.div>
 
         {/* Right Column - Video */}
-        <motion.div className="relative mt-8 lg:mt-0 -mt-16 lg:-mt-20">
-          {/* Only one outer container for video, no green border or padding */}
-          <div className="relative rounded-3xl shadow-2xl w-full h-full aspect-video overflow-hidden">
+        <motion.div className="relative mt-8 lg:mt-0 -mt-24 lg:-mt-28">
+          {/* Video container with subtle green border */}
+          <div className="relative rounded-3xl shadow-2xl w-full h-full aspect-video overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
             <motion.div
               className="w-full h-full aspect-video bg-black/50 rounded-3xl relative overflow-hidden"
               animate={{ y: [0, -10, 0] }}

@@ -197,7 +197,6 @@ const FAQSection: React.FC = () => {
                         ease: "easeOut",
                         opacity: { delay: 0.1 }
                       }}
-                      className="overflow-hidden border-t border-teal-400/30"
                       className="overflow-hidden border-t border-teal-200"
                     >
                       <motion.div 
@@ -246,7 +245,7 @@ const FAQSection: React.FC = () => {
             href="https://calendly.com/avi-gotoretreats/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-xl font-semibold hover:from-teal-600 hover:to-emerald-600 transition-all cursor-hover shadow-lg"
+                          className="inline-flex items-center px-6 py-3 bg-[#FFA947] text-gray-900 rounded-xl font-semibold hover:brightness-95 transition-all cursor-hover shadow-lg"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(20, 184, 166, 0.3)"
