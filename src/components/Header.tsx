@@ -63,7 +63,7 @@ const Header: React.FC = () => {
           {/* CTA Buttons - Desktop */}
           <div className="hidden lg:flex space-x-3 xl:space-x-4">
             <motion.a
-              href="https://calendly.com/avi-gotoretreats/30min"
+              href="https://calendly.com/ashkairos_gotoretreats/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 xl:px-4 py-2 text-sm xl:text-base text-teal-600 border border-teal-600 rounded-lg hover:bg-teal-50 transition-colors cursor-hover"
@@ -72,16 +72,14 @@ const Header: React.FC = () => {
             >
               Free Call
             </motion.a>
-            <motion.a
-              href="https://calendly.com/avi-gotoretreats/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
               className="px-3 xl:px-4 py-2 text-sm xl:text-base bg-[#FFA947] text-gray-900 rounded-lg hover:brightness-95 transition-colors cursor-hover"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection('plans')}
             >
               Get Started
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,21 +112,19 @@ const Header: React.FC = () => {
               ))}
               <div className="px-4 space-y-3 pt-2">
                 <a
-                  href="https://calendly.com/avi-gotoretreats/30min"
+                  href="https://calendly.com/ashkairos_gotoretreats/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center px-4 py-3 text-teal-600 border-2 border-teal-600 rounded-lg cursor-hover font-semibold text-lg"
                 >
                   Free Call
                 </a>
-                <a
-                  href="https://calendly.com/avi-gotoretreats/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
                   className="block w-full text-center px-4 py-3 bg-[#FFA947] text-gray-900 rounded-lg cursor-hover font-semibold text-lg"
+                  onClick={() => scrollToSection('plans')}
                 >
                   Get Started
-                </a>
+                </button>
               </div>
             </div>
           </motion.div>

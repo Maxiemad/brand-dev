@@ -61,9 +61,9 @@ const ComparisonSection: React.FC = () => {
         </motion.div>
 
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-          <div className="grid lg:grid-cols-2 gap-1">
+          <div className="grid lg:grid-cols-2 gap-1 lg:gap-1 gap-4">
             {/* GoToRetreats Column */}
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 sm:p-8 relative overflow-hidden flex flex-col h-full">
+                          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-4 sm:p-6 lg:p-8 relative overflow-hidden flex flex-col h-full">
               {/* Animated background pattern */}
               <motion.div
                 className="absolute inset-0 opacity-10"
@@ -88,7 +88,7 @@ const ComparisonSection: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-400 to-teal-400 text-white rounded-full font-bold text-base sm:text-lg shadow-lg">
+                <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-emerald-400 to-teal-400 text-white rounded-full font-bold text-sm sm:text-base lg:text-lg shadow-lg">
                   💛 GoToRetreats
                 </div>
               </motion.div>
@@ -99,7 +99,7 @@ const ComparisonSection: React.FC = () => {
                   return (
                     <motion.div
                       key={index}
-                      className="flex items-center space-x-4 p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-emerald-300 relative overflow-hidden w-full min-h-[76px] h-[76px] max-h-fit"
+                      className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-emerald-300 relative overflow-hidden w-full min-h-[60px] sm:min-h-[76px] h-auto sm:h-[76px] max-h-fit"
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -136,10 +136,10 @@ const ComparisonSection: React.FC = () => {
                         }}
                         className="rounded-full"
                       >
-                        <IconComponent className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 flex-shrink-0 mt-1 sm:mt-0.5" />
                       </motion.div>
                       <div>
-                        <p className="font-bold text-black text-sm leading-relaxed">{item.gotoretreats}</p>
+                        <p className="font-bold text-black text-xs sm:text-sm leading-relaxed">{item.gotoretreats}</p>
                       </div>
                     </motion.div>
                   );
@@ -148,7 +148,7 @@ const ComparisonSection: React.FC = () => {
             </div>
 
             {/* Typical Services Column */}
-            <div className="bg-gradient-to-br from-red-500/20 to-orange-500/20 p-6 sm:p-8 relative overflow-hidden flex flex-col h-full">
+            <div className="bg-gradient-to-br from-red-500/20 to-orange-500/20 p-4 sm:p-6 lg:p-8 relative overflow-hidden flex flex-col h-full">
               {/* Animated background pattern */}
               <motion.div
                 className="absolute inset-0 opacity-5"
@@ -173,7 +173,7 @@ const ComparisonSection: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-full font-bold text-base sm:text-lg shadow-lg">
+                <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-full font-bold text-sm sm:text-base lg:text-lg shadow-lg">
                   😕 Typical Services
                 </div>
               </motion.div>
@@ -184,7 +184,7 @@ const ComparisonSection: React.FC = () => {
                   return (
                     <motion.div
                       key={index}
-                      className="flex items-center space-x-4 p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-red-400/30 relative overflow-hidden w-full min-h-[76px] h-[76px] max-h-fit"
+                      className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-red-400/30 relative overflow-hidden w-full min-h-[60px] sm:min-h-[76px] h-auto sm:h-[76px] max-h-fit"
                       initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -221,10 +221,10 @@ const ComparisonSection: React.FC = () => {
                         }}
                         className="rounded-full"
                       >
-                        <IconComponent className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-red-400 flex-shrink-0 mt-1 sm:mt-0.5" />
                       </motion.div>
                       <div>
-                        <p className="font-bold text-black text-sm leading-relaxed">{item.typical}</p>
+                        <p className="font-bold text-black text-xs sm:text-sm leading-relaxed">{item.typical}</p>
                       </div>
                     </motion.div>
                   );

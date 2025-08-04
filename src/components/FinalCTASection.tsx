@@ -77,7 +77,7 @@ const FinalCTASection: React.FC = () => {
           viewport={{ once: true }}
         >
           <motion.a
-            href="https://calendly.com/avi-gotoretreats/30min"
+            href="https://calendly.com/ashkairos_gotoretreats/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 bg-[#FFA947] text-gray-900 rounded-2xl font-bold text-lg sm:text-xl shadow-2xl hover:brightness-95 transition-all duration-300 cursor-hover group"
