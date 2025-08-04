@@ -235,6 +235,13 @@ const ServicesSection: React.FC = () => {
                         y: -2
                       }}
                       whileTap={{ scale: 0.98 }}
+                      onClick={() => {
+                        if (plan.buttonText === "Get Toolkit + Calls – $699") {
+                          window.open('https://buy.stripe.com/00wbIT2PCaAA5Npafi77O01', '_blank');
+                        } else if (plan.buttonText === "Get the Toolkit – $199") {
+                          window.open('https://buy.stripe.com/7sYeV5ai4cII7Vx5Z277O00', '_blank');
+                        }
+                      }}
                     >
                       {plan.buttonText}
                     </motion.button>
