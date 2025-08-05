@@ -19,8 +19,8 @@ function App() {
       <Header />
       <HeroSection />
       <PainPointsSection />
-      <VenuesSection />
       <SoulfulMethodology />
+      <VenuesSection />
       <ServicesSection />
       <ComparisonSection />
       <ServicesSlider />

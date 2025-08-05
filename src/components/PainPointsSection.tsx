@@ -3,14 +3,16 @@ import { motion } from 'framer-motion';
 
 const PainPointsSection: React.FC = () => {
   const painPoints = [
+    "Fear of not creating the impactful experience that you envision.",
+    "Feeling exhausted with the never ending to-do list.",
     "Don't know where to start?",
     "Scattered plans and no path of execution?",
     "Unsure how to budget or find venues?",
     "Fear of forgetting important logistics?",
     "Can't focus on teaching because you're stuck managing everything?",
-    "Fear of not creating the impactful experience that you envision.",
+    
     "Not sure if you will be able to pull it off seamlessly.",
-    "Feeling exhausted with the never ending to-do list."
+   
   ];
 
   return (

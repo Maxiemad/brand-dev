@@ -8,6 +8,7 @@ interface ScrollItem {
 
 interface SliderTrailProps {
   title?: string;
+  subtitle?: string;
   items: ScrollItem[];
   ctaText: string;
   onCtaClick?: () => void;
@@ -22,6 +23,7 @@ interface SliderTrailProps {
  */
 const SliderTrail: React.FC<SliderTrailProps> = ({
   title,
+  subtitle,
   items,
   ctaText,
   onCtaClick,
@@ -86,6 +88,17 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
           >
             {title}
           </motion.h2>
+          {subtitle && (
+            <motion.p
+              className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto font-light"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {subtitle}
+            </motion.p>
+          )}
         </div>
       )}
       <div className="relative w-full overflow-hidden" style={{ height: '260px' }}>

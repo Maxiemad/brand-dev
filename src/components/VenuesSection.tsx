@@ -26,7 +26,8 @@ const VenuesSection: React.FC = () => {
 
   return (
     <SliderTrail
-      title="Venues"
+      title="Premium Venues"
+      subtitle="Handpicked spaces designed to inspire, restore, and elevate every retreat experience."
       items={venuesScrollItems}
       ctaText="Explore Our Venues"
       onCtaClick={handleExploreVenues}

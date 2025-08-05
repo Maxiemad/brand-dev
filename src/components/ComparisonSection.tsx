@@ -7,19 +7,19 @@ const ComparisonSection: React.FC = () => {
     {
       icon: TrendingUp,
       category: 'Retreats Planned',
-      gotoretreats: 'Planned & hosted dozens of successful, high-impact retreats across multiple countries',
+      gotoretreats: 'A team with a combined total of 10+ years experience in planning & hosting successful, high-impact retreats across multiple countries',
       typical: 'Often 1–2 events, little niche experience'
     },
     {
       icon: MapPin,
       category: 'Core Focus',
-      gotoretreats: 'Transformation-first — spiritual & emotional depth, with a focus on the soul',
+      gotoretreats: 'Transformation + Impact Focused - spiritual & emotional depth, with a focus on the soul',
       typical: 'Travel coordination only, surface-level support'
     },
     {
       icon: Users,
       category: 'Venues & Partners',
-      gotoretreats: 'Curated healing-first venues, conscious vendors & aligned practitioners',
+      gotoretreats: 'Curated Healing - Conscious venues, vendors & aligned practitioners',
       typical: 'Generic resorts or budget locations with little soul'
     },
     {
@@ -99,7 +99,7 @@ const ComparisonSection: React.FC = () => {
                   return (
                     <motion.div
                       key={index}
-                      className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-emerald-300 relative overflow-hidden w-full min-h-[60px] sm:min-h-[76px] h-auto sm:h-[76px] max-h-fit"
+                      className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-emerald-300 relative overflow-hidden w-full min-h-[80px] sm:min-h-[100px] h-auto sm:h-[100px] max-h-fit"
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -184,7 +184,7 @@ const ComparisonSection: React.FC = () => {
                   return (
                     <motion.div
                       key={index}
-                      className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-red-400/30 relative overflow-hidden w-full min-h-[60px] sm:min-h-[76px] h-auto sm:h-[76px] max-h-fit"
+                      className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg border border-red-400/30 relative overflow-hidden w-full min-h-[80px] sm:min-h-[100px] h-auto sm:h-[100px] max-h-fit"
                       initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}

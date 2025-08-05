@@ -26,7 +26,8 @@ const ServicesSlider: React.FC = () => {
 
   return (
     <SliderTrail
-      title="Services"
+      title="Expert Planning Services"
+      subtitle="Thoughtfully curated offerings to simplify, personalize, and elevate every step of your retreat journey."
       items={servicesScrollItems}
       ctaText="Explore Our Service Providers"
       onCtaClick={handleExploreServices}
