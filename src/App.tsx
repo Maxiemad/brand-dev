@@ -20,9 +20,9 @@ function App() {
       <HeroSection />
       <PainPointsSection />
       <SoulfulMethodology />
-      <VenuesSection />
       <ServicesSection />
       <ComparisonSection />
+      <VenuesSection />
       <ServicesSlider />
       <WhoWeHelpSection />
       <FAQSection />
