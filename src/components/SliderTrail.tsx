@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ScrollItem {
   content: string;
@@ -17,7 +18,7 @@ interface SliderTrailProps {
 }
 
 /**
- * Reusable infinite image trail component.
+ * Reusable infinite image trail component with scroll controls.
  * direction="ltr" scrolls left-to-right (i.e., animates x from -width to 0),
  * direction="rtl" scrolls right-to-left (x from 0 to -width).
  */
@@ -31,12 +32,21 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
   loopDuration = 30,
 }) => {
   const rowRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [rowWidth, setRowWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [currentScroll, setCurrentScroll] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     const updateWidth = () => {
       if (rowRef.current) {
         setRowWidth(rowRef.current.scrollWidth);
+      }
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
       }
     };
     updateWidth();
@@ -53,19 +63,65 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
     };
   }, [items]);
 
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsAutoScrolling(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleScrollRight();
+    } else if (isRightSwipe) {
+      handleScrollLeft();
+    }
+    
+    setTouchStart(0);
+    setTouchEnd(0);
+    // Resume auto-scroll after 3 seconds
+    setTimeout(() => setIsAutoScrolling(true), 3000);
+  };
+
+  const handleScrollLeft = () => {
+    if (!rowRef.current) return;
+    const scrollAmount = containerWidth * 0.8; // Scroll 80% of container width
+    setCurrentScroll(prev => Math.max(0, prev - scrollAmount));
+    setIsAutoScrolling(false);
+    setTimeout(() => setIsAutoScrolling(true), 3000);
+  };
+
+  const handleScrollRight = () => {
+    if (!rowRef.current) return;
+    const scrollAmount = containerWidth * 0.8; // Scroll 80% of container width
+    setCurrentScroll(prev => prev + scrollAmount);
+    setIsAutoScrolling(false);
+    setTimeout(() => setIsAutoScrolling(true), 3000);
+  };
+
   /**
    * Calculate animation values depending on direction.
    * For rtl: x goes from 0 to -rowWidth (so it scrolls left).
    * For ltr: x goes from -rowWidth to 0 (so visible row moves right).
    */
-  const animateX =
-    direction === 'rtl'
+  const animateX = isAutoScrolling
+    ? direction === 'rtl'
       ? rowWidth
         ? { x: [0, -rowWidth] }
         : {}
       : rowWidth
       ? { x: [-rowWidth, 0] }
-      : {};
+      : {}
+    : { x: -currentScroll };
 
   // For smooth infinite loop we duplicate the set.
   return (
@@ -101,7 +157,40 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
           )}
         </div>
       )}
-      <div className="relative w-full overflow-hidden" style={{ height: '260px' }}>
+      
+      {/* Scroll Controls - Desktop */}
+      <div className="max-w-6xl mx-auto px-4 mb-4">
+        <div className="flex justify-between items-center">
+          <motion.button
+            onClick={handleScrollLeft}
+            className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-hover group"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-teal-600 transition-colors" />
+          </motion.button>
+          
+          <motion.button
+            onClick={handleScrollRight}
+            className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-hover group"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-teal-600 transition-colors" />
+          </motion.button>
+        </div>
+      </div>
+
+      <div 
+        ref={containerRef}
+        className="relative w-full overflow-hidden" 
+        style={{ height: '260px' }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <motion.div
           className="flex"
           style={{ width: rowWidth ? rowWidth * 2 : 'auto' }}
@@ -109,9 +198,9 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
           transition={
             rowWidth
               ? {
-                  duration: loopDuration,
-                  repeat: Infinity,
-                  ease: 'linear',
+                  duration: isAutoScrolling ? loopDuration : 0.5,
+                  repeat: isAutoScrolling ? Infinity : 0,
+                  ease: isAutoScrolling ? 'linear' : 'easeOut',
                 }
               : {}
           }
@@ -149,6 +238,14 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
           </div>
         </motion.div>
       </div>
+
+      {/* Mobile Scroll Indicators */}
+      <div className="sm:hidden mt-4 text-center">
+        <p className="text-sm text-gray-500">
+          Swipe left or right to navigate
+        </p>
+      </div>
+
       <div className="mt-8 flex justify-center">
         <button
           onClick={onCtaClick}

@@ -9,7 +9,7 @@ const ServicesSection: React.FC = () => {
       icon: Crown,
       title: "Done-For-You Retreats",
       subtitle: "Show up. Teach. Transform. We handle the rest.",
-      price: "Starts at $999/mo",
+      price: "Starts at $999",
       gradient: "from-purple-400 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50",
       features: [

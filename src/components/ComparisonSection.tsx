@@ -31,7 +31,7 @@ const ComparisonSection: React.FC = () => {
     {
       icon: MessageCircle,
       category: 'Planning Tools',
-      gotoretreats: 'Templates, launch calendars, budgeting tools, live support — all in one',
+      gotoretreats: 'Templates, launch calendars, budgeting tools, live support, all in one',
       typical: 'Usually no tools, or generic checklists with no personalization'
     },
     {

@@ -7,11 +7,38 @@ const HeroSection: React.FC = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [overlay, setOverlay] = useState(true);
 
-  const handlePlay = () => {
+  const handlePlay = async () => {
     setOverlay(false);
     if (iframeRef.current) {
       const player = new Player(iframeRef.current);
-      player.play();
+      
+      try {
+        // First ensure audio is enabled
+        await player.setVolume(1);
+        await player.setMuted(false);
+        
+        // Then play the video with audio
+        await player.play();
+        
+        // Double-check after a short delay to ensure audio stays on
+        setTimeout(async () => {
+          try {
+            await player.setVolume(1);
+            await player.setMuted(false);
+          } catch (e) {
+            console.log('Volume check error:', e);
+          }
+        }, 1000);
+        
+      } catch (error) {
+        console.log('Video play error:', error);
+        // Fallback: try to play anyway
+        try {
+          await player.play();
+        } catch (e) {
+          console.log('Fallback play error:', e);
+        }
+      }
     }
   };
 
@@ -139,7 +166,7 @@ const HeroSection: React.FC = () => {
               {/* Vimeo Video Embed */}
               <iframe
                 ref={iframeRef}
-                src="https://player.vimeo.com/video/1106920945?h=0&autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=1&playsinline=1&webkit-playsinline=1"
+                src="https://player.vimeo.com/video/1106920945?h=0&autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=0&playsinline=1&webkit-playsinline=1"
                 className="w-full h-full rounded-3xl"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"

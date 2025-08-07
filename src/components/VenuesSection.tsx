@@ -17,6 +17,11 @@ const venuesScrollItems: ScrollItem[] = [
   { content: '/3.png', alt: 'Venue 8' },
   { content: '/2.png', alt: 'Venue 9' },
   { content: '/1.png', alt: 'Venue 10' },
+  { content: '/add.png', alt: 'Venue 11' },
+  { content: '/add2.png', alt: 'Venue 12' },
+  { content: '/add3.png', alt: 'Venue 13' },
+  { content: '/add4.png', alt: 'Venue 14' },
+
 ];
 
 const VenuesSection: React.FC = () => {

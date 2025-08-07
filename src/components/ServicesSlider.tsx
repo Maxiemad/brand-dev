@@ -17,6 +17,7 @@ const servicesScrollItems: ScrollItem[] = [
   { content: '/19.png', alt: 'Service 8' },
   { content: '/20.png', alt: 'Service 9' },
   { content: '/11.png', alt: 'Service 10' },
+  { content: '/sadd1.png', alt: 'Service 11' },
 ];
 
 const ServicesSlider: React.FC = () => {
@@ -26,7 +27,7 @@ const ServicesSlider: React.FC = () => {
 
   return (
     <SliderTrail
-      title="Service Providers:"
+      title="Service Providers"
       subtitle="A trusted network of wellness experts devoted to collective healing and unforgettable experiences."
       items={servicesScrollItems}
       ctaText="Explore Our Service Providers"
