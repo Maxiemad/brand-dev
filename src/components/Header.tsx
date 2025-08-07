@@ -40,29 +40,30 @@ const Header: React.FC = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-1 sm:py-2' : 'py-3 sm:py-4'}`}>
+        <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-1 sm:py-2' : 'py-3 sm:py-4'}`}> 
+          {/* Logo */}
           <motion.div
-            className="flex items-center cursor-hover"
+            className="flex items-center cursor-pointer"
             whileHover={{ scale: 1.05 }}
             onClick={() => scrollToSection('hero')}
           >
             <img 
               src="/Screenshot_2025-06-08_at_7.05.20_PM-removebg-preview.png" 
               alt="GoToRetreats" 
-              className={`${isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20'} w-auto`}
+              className={`transition-all duration-300 ${isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20'} w-auto`}
             />
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-8">
-            {['methodology', 'plans', 'contact'].map((item) => (
+            {['methodology', 'services', 'contact'].map((item) => (
               <motion.button
                 key={item}
-                className="text-gray-700 hover:text-teal-600 font-medium cursor-hover transition-colors text-sm xl:text-base"
+                className="text-gray-700 hover:text-teal-600 font-medium capitalize transition-colors text-sm xl:text-base"
                 whileHover={{ y: -2 }}
                 onClick={() => scrollToSection(item)}
               >
-                {item === 'plans' ? 'Our Plans' : item.charAt(0).toUpperCase() + item.slice(1)}
+                {item}
               </motion.button>
             ))}
           </nav>
@@ -70,28 +71,30 @@ const Header: React.FC = () => {
           {/* CTA Buttons - Desktop */}
           <div className="hidden lg:flex space-x-3 xl:space-x-4">
             <motion.a
-              href="https://calendly.com/ashkairos_gotoretreats/30min"
+              href="https://hello.gotoretreats.com/free-marketing-assessment"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 xl:px-4 py-2 text-sm xl:text-base text-teal-600 border border-teal-600 rounded-lg hover:bg-teal-50 transition-colors cursor-hover"
+              className="px-3 xl:px-4 py-2 text-sm xl:text-base text-teal-600 border border-teal-600 rounded-lg hover:bg-teal-50 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Free Call
+              Free Audit
             </motion.a>
-            <motion.button
-              className="px-3 xl:px-4 py-2 text-sm xl:text-base bg-[#FFA947] text-gray-900 rounded-lg hover:brightness-95 transition-colors cursor-hover"
+            <motion.a
+              href="https://calendly.com/avi-gotoretreats/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 xl:px-4 py-2 text-sm xl:text-base bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('plans')}
             >
-              Get Started
-            </motion.button>
+              Book Call
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="lg:hidden cursor-hover p-2"
+            className="lg:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -99,7 +102,7 @@ const Header: React.FC = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
           <motion.div
             className="lg:hidden bg-white border-t shadow-lg"
@@ -111,7 +114,7 @@ const Header: React.FC = () => {
               {['methodology', 'services', 'contact'].map((item) => (
                 <button
                   key={item}
-                  className="block w-full text-left px-4 py-3 text-gray-700 hover:text-teal-600 capitalize cursor-hover text-lg font-medium"
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:text-teal-600 capitalize text-lg font-medium"
                   onClick={() => scrollToSection(item)}
                 >
                   {item}
@@ -122,7 +125,7 @@ const Header: React.FC = () => {
                   href="https://hello.gotoretreats.com/free-marketing-assessment"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-4 py-3 text-teal-600 border-2 border-teal-600 rounded-lg cursor-hover font-semibold text-lg"
+                  className="block w-full text-center px-4 py-3 text-teal-600 border-2 border-teal-600 rounded-lg font-semibold text-lg"
                 >
                   Free Audit
                 </a>
@@ -130,7 +133,7 @@ const Header: React.FC = () => {
                   href="https://calendly.com/avi-gotoretreats/30min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-4 py-3 bg-teal-600 text-white rounded-lg cursor-hover font-semibold text-lg"
+                  className="block w-full text-center px-4 py-3 bg-teal-600 text-white rounded-lg font-semibold text-lg"
                 >
                   Book Call
                 </a>
