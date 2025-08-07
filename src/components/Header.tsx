@@ -25,15 +25,21 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 w-full z-50 bg-white transition-all duration-300 ${
-        isScrolled ? 'backdrop-blur-md shadow-lg' : ''
-      }`}
+      className="fixed top-0 left-0 w-full bg-white shadow-lg"
       style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        width: '100%',
+        zIndex: 99999,
+        backgroundColor: 'white',
         WebkitOverflowScrolling: 'touch',
         backfaceVisibility: 'hidden',
         WebkitBackfaceVisibility: 'hidden',
         transform: 'translateZ(0)',
         WebkitTransform: 'translateZ(0)',
+        willChange: 'transform',
       }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

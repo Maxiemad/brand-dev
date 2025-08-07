@@ -14,22 +14,24 @@ import FinalCTASection from './components/FinalCTASection';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <CustomCursor />
+    <>
       <Header />
-      <main className="mt-[80px]">
-        <HeroSection />
-        <PainPointsSection />
-        <SoulfulMethodology />
-        <ServicesSection />
-        <ComparisonSection />
-        <VenuesSection />
-        <ServicesSlider />
-        <WhoWeHelpSection />
-        <FAQSection />
-        <FinalCTASection />
-      </main>
-    </div>
+      <div className="min-h-screen bg-white">
+        <CustomCursor />
+        <main className="mt-[80px]">
+          <HeroSection />
+          <PainPointsSection />
+          <SoulfulMethodology />
+          <ServicesSection />
+          <ComparisonSection />
+          <VenuesSection />
+          <ServicesSlider />
+          <WhoWeHelpSection />
+          <FAQSection />
+          <FinalCTASection />
+        </main>
+      </div>
+    </>
   );
 }
 
