@@ -17,16 +17,18 @@ function App() {
     <div className="min-h-screen bg-white">
       <CustomCursor />
       <Header />
-      <HeroSection />
-      <PainPointsSection />
-      <SoulfulMethodology />
-      <ServicesSection />
-      <ComparisonSection />
-      <VenuesSection />
-      <ServicesSlider />
-      <WhoWeHelpSection />
-      <FAQSection />
-      <FinalCTASection />
+      <main className="mt-[80px]">
+        <HeroSection />
+        <PainPointsSection />
+        <SoulfulMethodology />
+        <ServicesSection />
+        <ComparisonSection />
+        <VenuesSection />
+        <ServicesSlider />
+        <WhoWeHelpSection />
+        <FAQSection />
+        <FinalCTASection />
+      </main>
     </div>
   );
 }
