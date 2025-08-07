@@ -88,8 +88,8 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
     
     setTouchStart(0);
     setTouchEnd(0);
-    // Resume auto-scroll after 3 seconds
-    setTimeout(() => setIsAutoScrolling(true), 3000);
+    // Resume auto-scroll after 4 seconds
+    setTimeout(() => setIsAutoScrolling(true), 4000);
   };
 
   const handleScrollLeft = () => {
@@ -97,7 +97,7 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
     const scrollAmount = containerWidth * 0.8; // Scroll 80% of container width
     setCurrentScroll(prev => Math.max(0, prev - scrollAmount));
     setIsAutoScrolling(false);
-    setTimeout(() => setIsAutoScrolling(true), 3000);
+    setTimeout(() => setIsAutoScrolling(true), 4000);
   };
 
   const handleScrollRight = () => {
@@ -105,7 +105,7 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
     const scrollAmount = containerWidth * 0.8; // Scroll 80% of container width
     setCurrentScroll(prev => prev + scrollAmount);
     setIsAutoScrolling(false);
-    setTimeout(() => setIsAutoScrolling(true), 3000);
+    setTimeout(() => setIsAutoScrolling(true), 4000);
   };
 
   /**
