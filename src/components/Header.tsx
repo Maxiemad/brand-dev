@@ -25,10 +25,10 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 w-full bg-white shadow-lg"
+      className="sticky top-0 w-full bg-white shadow-lg"
       style={{
-        position: 'fixed',
-        top: 0,
+        position: 'sticky',
+        top: '0px',
         left: 0,
         right: 0,
         width: '100%',

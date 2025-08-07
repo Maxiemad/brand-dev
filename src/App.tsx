@@ -18,7 +18,7 @@ function App() {
       <Header />
       <div className="min-h-screen bg-white">
         <CustomCursor />
-        <main className="mt-[80px]">
+        <main>
           <HeroSection />
           <PainPointsSection />
           <SoulfulMethodology />
