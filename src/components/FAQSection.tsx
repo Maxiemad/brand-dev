@@ -59,9 +59,12 @@ const FAQSection: React.FC = () => {
       // Simulate form submission (replace with actual MailerLite API call)
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Extract first name from email (you can modify this logic as needed)
+      // Extract first name from email (improved logic)
       const emailName = email.split('@')[0];
-      setFirstName(emailName.charAt(0).toUpperCase() + emailName.slice(1));
+      // Handle cases like john.doe@email.com -> John
+      const cleanName = emailName.split('.')[0].split('_')[0];
+      const capitalizedName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1).toLowerCase();
+      setFirstName(capitalizedName);
       
       setIsSubscribeSuccess(true);
     } catch (error) {
@@ -342,7 +345,7 @@ const FAQSection: React.FC = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <div className="flex-1">
                       <input
                         type="email"
@@ -364,7 +367,7 @@ const FAQSection: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting || !email.trim()}
-                      className={`px-6 py-3 rounded-lg font-bold text-white transition-all whitespace-nowrap ${
+                      className={`w-full sm:w-auto px-6 py-3 rounded-lg font-bold text-white transition-all whitespace-nowrap ${
                         isSubmitting || !email.trim()
                           ? 'bg-gray-500 cursor-not-allowed'
                           : 'bg-[#009e9b] hover:bg-[#E09453] hover:scale-105'
