@@ -72,17 +72,19 @@ const CustomCursor: React.FC = () => {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-[18.4px] h-[18.4px] bg-[#FFA947] rounded-full opacity-90 z-50 pointer-events-none transition-transform duration-150"
+        className="fixed top-0 left-0 w-[18.4px] h-[18.4px] bg-[#FFA947] rounded-full opacity-90 pointer-events-none transition-transform duration-150"
         style={{
           willChange: 'transform',
+          zIndex: 2147483647,
           transition: 'transform 0.15s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       />
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-[7.4px] h-[7.4px] bg-black rounded-full z-50 pointer-events-none"
+        className="fixed top-0 left-0 w-[7.4px] h-[7.4px] bg-black rounded-full pointer-events-none"
         style={{
           willChange: 'transform',
+          zIndex: 2147483647,
         }}
       />
     </>
