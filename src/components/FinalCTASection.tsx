@@ -4,7 +4,7 @@ import { Phone, Target, Calendar } from 'lucide-react';
 
 const FinalCTASection: React.FC = () => {
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-teal-900 text-white relative overflow-hidden">
+    <section id="contact" className="pt-4 sm:pt-6 pb-16 sm:pb-20 bg-gradient-to-br from-gray-900 to-teal-900 text-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div

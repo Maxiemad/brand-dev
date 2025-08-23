@@ -4,76 +4,8 @@ import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 
 const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [isSubscribeSuccess, setIsSubscribeSuccess] = useState(false);
-  const [firstName, setFirstName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string }>({});
 
-  useEffect(() => {
-    if (isSubscribeSuccess) return;
-    const iframe = document.getElementById('ml-inline-target-frame') as HTMLIFrameElement | null;
-    if (!iframe) return;
-    const onLoad = () => {
-      const nameInput = document.querySelector<HTMLInputElement>('#mlb2-20877511 input[name="fields[name]"]');
-      if (nameInput && nameInput.value) {
-        setFirstName(nameInput.value.trim());
-      }
-      setIsSubscribeSuccess(true);
-    };
-    iframe.addEventListener('load', onLoad);
-    return () => iframe.removeEventListener('load', onLoad);
-  }, [isSubscribeSuccess]);
 
-  const resetForm = () => {
-    setIsSubscribeSuccess(false);
-    setFirstName('');
-    setEmail('');
-    setErrors({});
-    setIsSubmitting(false);
-  };
-
-  const validateForm = () => {
-    const newErrors: { email?: string } = {};
-    
-    if (!email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      // Simulate form submission (replace with actual MailerLite API call)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Extract first name from email (improved logic)
-      const emailName = email.split('@')[0];
-      // Handle cases like john.doe@email.com -> John
-      const cleanName = emailName.split('.')[0].split('_')[0];
-      const capitalizedName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1).toLowerCase();
-      setFirstName(capitalizedName);
-      
-      setIsSubscribeSuccess(true);
-    } catch (error) {
-      console.error('Subscription error:', error);
-      setErrors({ email: 'Subscription failed. Please try again.' });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const faqs = [
     {
@@ -325,111 +257,11 @@ const FAQSection: React.FC = () => {
             Book a Free Consultation
           </motion.a>
 
-          {/* Custom form below the CTA */}
-          <div className="mt-6 sm:mt-8">
-            {!isSubscribeSuccess ? (
-              <motion.div
-                className="bg-[#444444] border border-[#e6e6e6] rounded-2xl p-6 sm:p-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="text-center mb-6">
-                  <h4 className="text-white text-2xl sm:text-3xl font-bold mb-3 text-left">
-                    Start Planning Your Retreat Today!
-                  </h4>
-                  <p className="text-white text-lg text-left">
-                    Simply leave your email address, and we'll give you the link to download your{' '}
-                    <strong>FREE Retreat Planning Guide</strong> right away!
-                  </p>
-                </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <div className="flex-1">
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className={`w-full px-4 py-3 rounded-lg border-2 text-gray-900 font-medium transition-colors ${
-                          errors.email 
-                            ? 'border-red-500 bg-red-50' 
-                            : 'border-[#009e9b] bg-white focus:border-[#E09453]'
-                        }`}
-                        required
-                      />
-                      {errors.email && (
-                        <p className="text-red-400 text-sm mt-1">{errors.email}</p>
-                      )}
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting || !email.trim()}
-                      className={`w-full sm:w-auto px-6 py-3 rounded-lg font-bold text-white transition-all whitespace-nowrap ${
-                        isSubmitting || !email.trim()
-                          ? 'bg-gray-500 cursor-not-allowed'
-                          : 'bg-[#009e9b] hover:bg-[#E09453] hover:scale-105'
-                      }`}
-                    >
-                      {isSubmitting ? (
-                        <div className="flex items-center justify-center">
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Subscribing...
-                        </div>
-                      ) : (
-                        'Subscribe'
-                      )}
-                    </button>
-                  </div>
-
-                  <p className="text-white text-sm text-left">
-                    You can unsubscribe anytime. For more details, review our Privacy Policy.
-                  </p>
-                </form>
-              </motion.div>
-            ) : (
-              <motion.section 
-                className="py-16 bg-[#444444] border border-[#e6e6e6] rounded-2xl"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <motion.div
-                    className="text-center"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="text-green-400 text-6xl mb-4">✅</div>
-                    <h4 className="text-white text-2xl font-bold mb-2">
-                      {firstName ? `Thank you, ${firstName}!` : 'Thank you!'}
-                    </h4>
-                    <p className="text-white text-lg mb-4">Your Retreat Planning Guide is Here! 🙌</p>
-                    <p className="text-white mb-6">You're one step closer to planning a smooth, successful retreat!</p>
-                    <a 
-                      href="https://drive.google.com/file/d/1hjuO8sQTM12qrwlPcEfDcV_R9DNrHcNg/view?usp=sharing" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-block bg-[#009e9b] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#E09453] transition-colors"
-                    >
-                      Download Your FREE Guide
-                    </a>
-                    <button 
-                      onClick={resetForm}
-                      className="block mx-auto mt-4 text-white text-sm underline hover:no-underline"
-                    >
-                      Subscribe another email
-                    </button>
-                  </motion.div>
-                </div>
-              </motion.section>
-            )}
-          </div>
         </motion.div>
       </div>
+
+
     </section>
   );
 };

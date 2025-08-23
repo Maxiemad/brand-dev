@@ -10,6 +10,7 @@ import ServicesSlider from './components/ServicesSlider';
 import ComparisonSection from './components/ComparisonSection';
 import WhoWeHelpSection from './components/WhoWeHelpSection';
 import FAQSection from './components/FAQSection';
+import EmailSubscriptionSection from './components/EmailSubscriptionSection';
 import FinalCTASection from './components/FinalCTASection';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <ServicesSlider />
           <WhoWeHelpSection />
           <FAQSection />
+          <EmailSubscriptionSection />
           <FinalCTASection />
         </main>
       </div>
