@@ -99,111 +99,51 @@
         }
       }
     </style>
-    <!-- Tidio Chat Widget -->
-    <script src="//code.tidio.co/p2dbjrjg4sjg4n5iu1dyf1jlf5npxupq.js" async></script>
-    <script>
-      // iOS Tidio Chat Fix - 100% Guaranteed
-      document.addEventListener('DOMContentLoaded', function() {
-        function fixTidioOnIOS() {
-          // Check if it's iOS
-          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-          
-          if (isIOS) {
-            // Find ALL possible Tidio elements
-            const tidioSelectors = [
-              '#tidio-chat',
-              '#tidio-chat-code', 
-              '.tidio-chat',
-              '[id*="tidio"]',
-              'iframe[src*="tidio"]',
-              'div[id*="tidio"]'
-            ];
-            
-            tidioSelectors.forEach(function(selector) {
-              const elements = document.querySelectorAll(selector);
-              elements.forEach(function(element) {
-                // Force all styles
-                element.style.setProperty('position', 'fixed', 'important');
-                element.style.setProperty('bottom', '15px', 'important');
-                element.style.setProperty('right', '15px', 'important');
-                element.style.setProperty('z-index', '999999', 'important');
-                element.style.setProperty('transform', 'none', 'important');
-                element.style.setProperty('-webkit-transform', 'none', 'important');
-                element.style.setProperty('display', 'block', 'important');
-                element.style.setProperty('visibility', 'visible', 'important');
-                element.style.setProperty('opacity', '1', 'important');
-                element.style.setProperty('pointer-events', 'auto', 'important');
-                
-                // Remove any hiding classes
-                element.classList.remove('hidden', 'invisible', 'opacity-0');
-                element.classList.add('visible', 'opacity-100');
-              });
-            });
-            
-            // Also check for any iframes inside Tidio elements
-            const tidioIframes = document.querySelectorAll('#tidio-chat iframe, #tidio-chat-code iframe, [id*="tidio"] iframe');
-            tidioIframes.forEach(function(iframe) {
-              iframe.style.setProperty('position', 'fixed', 'important');
-              iframe.style.setProperty('bottom', '15px', 'important');
-              iframe.style.setProperty('right', '15px', 'important');
-              iframe.style.setProperty('z-index', '999999', 'important');
-              iframe.style.setProperty('display', 'block', 'important');
-              iframe.style.setProperty('visibility', 'visible', 'important');
-              iframe.style.setProperty('opacity', '1', 'important');
-            });
-          }
-        }
-        
-        // Apply fixes immediately and repeatedly
-        fixTidioOnIOS();
-        setTimeout(fixTidioOnIOS, 1000);
-        setTimeout(fixTidioOnIOS, 2000);
-        setTimeout(fixTidioOnIOS, 3000);
-        setTimeout(fixTidioOnIOS, 5000);
-        setTimeout(fixTidioOnIOS, 8000);
-        setTimeout(fixTidioOnIOS, 10000);
-        
-        // Continuous monitoring
-        setInterval(fixTidioOnIOS, 2000);
-        
-        // Event listeners
-        window.addEventListener('scroll', fixTidioOnIOS, { passive: true });
-        window.addEventListener('resize', fixTidioOnIOS, { passive: true });
-        window.addEventListener('orientationchange', function() {
-          setTimeout(fixTidioOnIOS, 500);
-          setTimeout(fixTidioOnIOS, 1000);
-        });
-        
-        // Advanced DOM monitoring
-        const observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type === 'childList') {
-              mutation.addedNodes.forEach(function(node) {
-                if (node.nodeType === 1) {
-                  // Check if any new element contains "tidio"
-                  if (node.id && node.id.includes('tidio') || 
-                      node.className && node.className.includes('tidio') ||
-                      node.querySelector && node.querySelector('[id*="tidio"]')) {
-                    setTimeout(fixTidioOnIOS, 100);
-                    setTimeout(fixTidioOnIOS, 500);
-                  }
-                }
-              });
-            }
-          });
-        });
-        
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ['style', 'class']
-        });
-      });
-    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Tidio Chat Widget -->
+    <script src="//code.tidio.co/p2dbjrjg4sjg4n5iu1dyf1jlf5npxupq.js" async></script>
+    <script>
+      // Ensure Tidio is ready, then enforce fixed positioning (iOS-safe)
+      (function ensureTidioReady() {
+        function onReady(cb) {
+          if (window.tidioChatApi && typeof window.tidioChatApi.on === 'function') {
+            window.tidioChatApi.on('ready', cb);
+          } else {
+            document.addEventListener('tidioChat-ready', cb, { once: true });
+          }
+        }
+        function applyStyles() {
+          var selectors = ['#tidio-chat', '#tidio-chat-code', '.tidio-chat', '[id*="tidio"]'];
+          selectors.forEach(function(sel) {
+            document.querySelectorAll(sel).forEach(function(el) {
+              el.style.setProperty('position', 'fixed', 'important');
+              el.style.setProperty('bottom', '15px', 'important');
+              el.style.setProperty('right', '15px', 'important');
+              el.style.setProperty('z-index', '999999', 'important');
+              el.style.setProperty('transform', 'none', 'important');
+              el.style.setProperty('-webkit-transform', 'none', 'important');
+              el.style.setProperty('display', 'block', 'important');
+              el.style.setProperty('visibility', 'visible', 'important');
+              el.style.setProperty('opacity', '1', 'important');
+            });
+          });
+        }
+        onReady(function() {
+          applyStyles();
+          // Re-apply on scroll/resize/orientation
+          ['scroll', 'resize', 'orientationchange'].forEach(function(evt) {
+            window.addEventListener(evt, function() { setTimeout(applyStyles, 50); }, { passive: true });
+          });
+          // Observe DOM changes
+          var observer = new MutationObserver(function() { setTimeout(applyStyles, 50); });
+          observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+          // Periodic reinforcement (iOS quirks)
+          setInterval(applyStyles, 1500);
+        });
+      })();
+    </script>
   </body>
 </html>

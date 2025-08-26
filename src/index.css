@@ -34,17 +34,13 @@
   
   /* iOS-specific optimizations */
   @supports (-webkit-touch-callout: none) {
-    /* Disable hover effects on touch devices */
+    /* Disable hover transforms on touch devices to avoid accidental 3D contexts */
     *:hover {
       transform: none !important;
     }
     
-    /* Optimize animations for iOS */
-    * {
-      -webkit-transform: translateZ(0);
-      -webkit-backface-visibility: hidden;
-      -webkit-perspective: 1000px;
-    }
+    /* Removed global translateZ/backface on all elements to avoid breaking position: fixed */
+    /* If needed, apply GPU hints only to specific animated elements, not globally. */
     
     /* iOS video handling */
     iframe, video {
