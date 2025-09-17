@@ -244,7 +244,7 @@ const FAQSection: React.FC = () => {
             Still have questions? We're here to help!
           </motion.p>
           <motion.a
-            href="https://calendly.com/ashkairos_gotoretreats/30min"
+            href="https://crm.gotoretreats.com/book/ash-kairos"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 bg-[#FFA947] text-gray-900 rounded-xl font-semibold hover:brightness-95 transition-all cursor-hover shadow-lg"

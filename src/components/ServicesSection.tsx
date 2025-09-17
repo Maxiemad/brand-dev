@@ -241,7 +241,7 @@ const ServicesSection: React.FC = () => {
                         } else if (plan.buttonText === "Get the Toolkit – $199") {
                           window.open('https://buy.stripe.com/7sYeV5ai4cII7Vx5Z277O00', '_blank');
                         } else if (plan.buttonText === "Book a Free Call") {
-                          window.open('https://calendly.com/ashkairos_gotoretreats/30min', '_blank');
+                          window.open('https://crm.gotoretreats.com/book/ash-kairos', '_blank');
                         }
                       }}
                     >

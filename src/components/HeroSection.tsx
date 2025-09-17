@@ -137,7 +137,7 @@ const HeroSection: React.FC = () => {
             </motion.button>
 
             <motion.a
-              href="https://calendly.com/ashkairos_gotoretreats/30min"
+              href="https://crm.gotoretreats.com/book/ash-kairos"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold text-base sm:text-lg hover:border-teal-600 hover:text-teal-600 transition-all cursor-hover group w-full sm:w-auto"
