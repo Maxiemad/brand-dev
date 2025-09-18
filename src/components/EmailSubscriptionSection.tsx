@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const EmailSubscriptionSection: React.FC = () => {
@@ -7,6 +7,20 @@ const EmailSubscriptionSection: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; firstName?: string }>({});
+
+  // Ensure this section scrolls into view when accessed via anchor link
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#pdf-download') {
+      // Wait for component to render, then scroll
+      setTimeout(() => {
+        const element = document.getElementById('pdf-download');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 1000);
+    }
+  }, []);
 
   const resetForm = () => {
     setIsSubscribeSuccess(false);
@@ -59,7 +73,7 @@ const EmailSubscriptionSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-8 sm:py-12 mt-8 sm:mt-12 lg:mt-16">
+    <section id="pdf-download" className="w-full py-8 sm:py-12 mt-8 sm:mt-12 lg:mt-16">
       {!isSubscribeSuccess ? (
         <motion.div
           className="bg-[#444444] border border-[#e6e6e6] rounded-2xl p-6 sm:p-8 mx-4 sm:mx-6 lg:mx-8"

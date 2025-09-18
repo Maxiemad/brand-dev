@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CustomCursor from './components/CustomCursor';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -14,6 +14,38 @@ import EmailSubscriptionSection from './components/EmailSubscriptionSection';
 import FinalCTASection from './components/FinalCTASection';
 
 function App() {
+  // Handle anchor links for direct navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const elementId = hash.substring(1);
+        const element = document.getElementById(elementId);
+        if (element) {
+          // Multiple attempts to ensure scrolling works
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 800);
+        }
+      }
+    };
+
+    // Handle initial load with hash
+    setTimeout(() => {
+      handleHashChange();
+    }, 500);
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
   return (
     <>
       <Header />
