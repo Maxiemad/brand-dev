@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced PDF Download Redirect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        .code {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border: 1px solid #e9ecef;
+            white-space: pre-wrap;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .feature {
+            background-color: #e7f3ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+            border-left: 3px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Enhanced PDF Download Redirect</h1>
+    
+    <div class="example">
+        <h2>✨ Enhanced Features</h2>
+        <div class="feature">⏱️ <strong>Increased scroll delay</strong> - Now waits 500ms for page to load, then scrolls</div>
+        <div class="feature">🔄 <strong>Multiple scroll attempts</strong> - Tries scrolling at 300ms and 800ms to ensure it works</div>
+        <div class="feature">🎯 <strong>Component-level scroll handler</strong> - NewsletterSignupSection now handles its own scroll behavior</div>
+        <div class="feature">⏰ <strong>Longer timeout</strong> - 1000ms delay ensures the component is fully rendered</div>
+    </div>
+
+    <div class="example">
+        <h2>🔗 Direct Link</h2>
+        <p>Simple HTML link that opens the PDF download section:</p>
+        <div class="code">https://planning.gotoretreats.com/#pdf-download</div>
+        <a href="https://planning.gotoretreats.com/#pdf-download" target="_blank" class="button">📄 Download PDF</a>
+    </div>
+
+    <div class="example">
+        <h2>📜 Enhanced JavaScript Script</h2>
+        <p>Complete enhanced script with scroll timing and multiple attempts:</p>
+        <div class="code">&lt;script&gt;
+// Enhanced redirect function with scroll handling
+function redirectToPDFDownloadEnhanced() {
+    // First, navigate to the page
+    window.location.href = "https://planning.gotoretreats.com/#pdf-download";
+    
+    // Wait for page to load, then handle scrolling
+    setTimeout(() => {
+        scrollToPDFSection();
+    }, 500); // Wait 500ms for page to load
+}
+
+// Function to scroll to PDF section with multiple attempts
+function scrollToPDFSection() {
+    // First scroll attempt at 300ms
+    setTimeout(() => {
+        const pdfSection = document.getElementById('pdf-download') || 
+                          document.querySelector('[data-section="pdf-download"]') ||
+                          document.querySelector('.pdf-download-section');
+        
+        if (pdfSection) {
+            pdfSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 300);
+    
+    // Second scroll attempt at 800ms (backup)
+    setTimeout(() => {
+        const pdfSection = document.getElementById('pdf-download') || 
+                          document.querySelector('[data-section="pdf-download"]') ||
+                          document.querySelector('.pdf-download-section');
+        
+        if (pdfSection) {
+            pdfSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 800);
+}
+&lt;/script&gt;</div>
+        <button onclick="redirectToPDFDownloadEnhanced()" class="button">🚀 Enhanced Redirect</button>
+    </div>
+
+    <div class="example">
+        <h2>🎯 Simple Enhanced Script (One-liner)</h2>
+        <p>Simplified version for easy embedding:</p>
+        <div class="code">&lt;script&gt;
+window.location.href = "https://planning.gotoretreats.com/#pdf-download";
+setTimeout(() => {
+    const pdfSection = document.getElementById('pdf-download') || 
+                      document.querySelector('[data-section="pdf-download"]');
+    if (pdfSection) pdfSection.scrollIntoView({ behavior: 'smooth' });
+}, 500);
+&lt;/script&gt;</div>
+        <button onclick="simpleEnhancedRedirect()" class="button">⚡ Simple Enhanced</button>
+    </div>
+
+    <div class="example">
+        <h2>✅ How It Works Now</h2>
+        <p>When users click the link, they will:</p>
+        <ol>
+            <li>📄 Page loads first (takes ~500ms)</li>
+            <li>🎯 Automatically scrolls to PDF section (not the first/hero section)</li>
+            <li>📋 Shows the PDF download form with all the content</li>
+            <li>🔄 Multiple scroll attempts ensure it works reliably</li>
+        </ol>
+    </div>
+
+    <script>
+        // Enhanced redirect function
+        function redirectToPDFDownloadEnhanced() {
+            window.location.href = "https://planning.gotoretreats.com/#pdf-download";
+            
+            setTimeout(() => {
+                scrollToPDFSection();
+            }, 500);
+        }
+
+        // Simple enhanced redirect
+        function simpleEnhancedRedirect() {
+            window.location.href = "https://planning.gotoretreats.com/#pdf-download";
+            setTimeout(() => {
+                const pdfSection = document.getElementById('pdf-download') || 
+                                  document.querySelector('[data-section="pdf-download"]');
+                if (pdfSection) pdfSection.scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        }
+
+        // Function to scroll to PDF section with multiple attempts
+        function scrollToPDFSection() {
+            setTimeout(() => {
+                const pdfSection = document.getElementById('pdf-download') || 
+                                  document.querySelector('[data-section="pdf-download"]') ||
+                                  document.querySelector('.pdf-download-section');
+                
+                if (pdfSection) {
+                    pdfSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            }, 300);
+            
+            setTimeout(() => {
+                const pdfSection = document.getElementById('pdf-download') || 
+                                  document.querySelector('[data-section="pdf-download"]') ||
+                                  document.querySelector('.pdf-download-section');
+                
+                if (pdfSection) {
+                    pdfSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            }, 800);
+        }
+    </script>
+</body>
+</html>
