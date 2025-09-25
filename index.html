@@ -13,10 +13,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-      * {
-        cursor: none !important;
+      /* Hide default cursor only on non-touch devices where custom cursor is shown */
+      @media (hover: hover) and (pointer: fine) {
+        * {
+          cursor: none !important;
+        }
       }
-      /* iOS Safari compatibility */
+      /* Show default cursor on touch devices */
+      @media (hover: none) or (pointer: coarse) {
+        * {
+          cursor: auto !important;
+        }
+      }
+      /* iOS Safari compatibility - show default cursor */
       @supports (-webkit-touch-callout: none) {
         * {
           cursor: auto !important;

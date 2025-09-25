@@ -7,7 +7,7 @@ const ServicesSection: React.FC = () => {
     {
       tier: "TIER 1",
       icon: Crown,
-      title: "Done-For-You Retreats",
+      title: "DFY (Done For You)",
       subtitle: "Show up. Teach. Transform. We handle the rest.",
       price: "Starts at $999",
       gradient: "from-purple-400 to-pink-500",
@@ -28,13 +28,12 @@ const ServicesSection: React.FC = () => {
     {
       tier: "TIER 2",
       icon: Wrench,
-      title: "DIY Bundle",
+      title: "DIY (Do It Yourself)",
       subtitle: "A self-guided roadmap to plan your retreat from A to Z.",
       price: "$199",
       gradient: "from-orange-400 to-red-500",
       bgGradient: "from-orange-50 to-red-50",
       features: [
-        "Plug-and-play itinerary builder",
         "Budgeting tools + real examples",
         "Legal forms, guest intake & feedback forms",
         "Marketing timelines + launch planner",
@@ -42,7 +41,6 @@ const ServicesSection: React.FC = () => {
         "3 Step guide to planning, execution and follow-up",
         "Emergency planning and risk management guide",
         "Email templates for Marketing",
-        "Free course (optional and subjected to Montana's availability)"
       ],
       buttonText: "Get the Toolkit – $199",
       buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",

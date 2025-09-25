@@ -6,11 +6,16 @@ const CustomCursor: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Check if device supports touch (iOS devices)
+    // Check if device supports touch and hover
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
     
-    // Don't show custom cursor on touch devices
-    if (isTouchDevice) {
+    // Only show custom cursor on devices that support hover and have fine pointer (desktop)
+    // Also check for user agent to ensure we're on a desktop browser
+    const isDesktop = !isTouchDevice && supportsHover && hasFinePointer;
+    
+    if (!isDesktop) {
       return;
     }
 
@@ -63,6 +68,32 @@ const CustomCursor: React.FC = () => {
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
+  // Handle media query changes
+  useEffect(() => {
+    const handleMediaChange = () => {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const supportsHover = window.matchMedia('(hover: hover)').matches;
+      const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+      
+      const isDesktop = !isTouchDevice && supportsHover && hasFinePointer;
+      
+      if (!isDesktop) {
+        setVisible(false);
+      }
+    };
+
+    const hoverMediaQuery = window.matchMedia('(hover: hover)');
+    const pointerMediaQuery = window.matchMedia('(pointer: fine)');
+    
+    hoverMediaQuery.addEventListener('change', handleMediaChange);
+    pointerMediaQuery.addEventListener('change', handleMediaChange);
+    
+    return () => {
+      hoverMediaQuery.removeEventListener('change', handleMediaChange);
+      pointerMediaQuery.removeEventListener('change', handleMediaChange);
     };
   }, []);
 
