@@ -51,12 +51,12 @@ const EmailSubscriptionSection: React.FC = () => {
 
               {/* Title */}
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                Retreat Marketing Strategy Guide
+                Retreat Planning Guide
               </h3>
 
               {/* Description */}
               <p className="text-white text-base sm:text-lg">
-                Unlock proven strategies to fill your retreats, attract ideal participants, and maximize your marketing ROI.
+                Unlock proven strategies to fill your retreats, attract ideal participants, and maximize your planning ROI.
               </p>
             </div>
 
