@@ -84,10 +84,10 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 min-w-0">
         {/* Left Column - Text & CTAs */}
         <motion.div
-          className="space-y-6 sm:space-y-8 text-center lg:text-left"
+          className="min-w-0 space-y-6 sm:space-y-8 text-center lg:text-left"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -154,59 +154,37 @@ const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Column - Video */}
-        <motion.div className="relative mt-8 lg:mt-0 -mt-24 lg:-mt-28">
-          {/* Video container with subtle green border */}
-          <div className="relative rounded-3xl shadow-2xl w-full aspect-video overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
-            <motion.div
-              className="w-full h-full bg-black/50 rounded-3xl relative overflow-hidden"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              {/* Vimeo Video Embed */}
+        <div className="relative mt-8 lg:mt-0 -mt-24 lg:-mt-28 min-w-0">
+          <div className="relative rounded-3xl shadow-2xl w-full max-w-full aspect-video overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
+            <div className="relative w-full h-full min-h-0 bg-black/50 overflow-hidden rounded-2xl">
               <iframe
                 ref={iframeRef}
-                src="https://player.vimeo.com/video/1106920945?h=0&autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=0&playsinline=1&webkit-playsinline=1"
-                className="w-full h-full rounded-3xl"
+                src="https://player.vimeo.com/video/1106920945?autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=0&playsinline=1"
+                className="absolute inset-0 w-full h-full border-0"
+                style={{ width: '100%', height: '100%' }}
                 frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
                 allowFullScreen
                 title="GoToRetreats Video"
               />
-              {/* Overlay with play button */}
               {overlay && (
-                <motion.div
-                  className="absolute inset-0 bg-black/20 flex items-center justify-center transition-opacity duration-300 cursor-pointer z-10"
-                  initial={{ opacity: 1 }}
-                  animate={{ opacity: overlay ? 1 : 0 }}
+                <button
+                  type="button"
+                  className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 transition-opacity duration-300 cursor-pointer border-0 p-0"
                   onClick={handlePlay}
+                  aria-label="Play video"
                 >
-                  <motion.div
-                    className="w-16 h-16 sm:w-20 sm:h-20 bg-white/95 rounded-full flex items-center justify-center shadow-xl"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    animate={{
-                      boxShadow: [
-                        '0 0 0 0 rgba(255, 255, 255, 0.7)',
-                        '0 0 0 20px rgba(255, 255, 255, 0)',
-                        '0 0 0 0 rgba(255, 255, 255, 0)'
-                      ]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity
-                    }}
-                  >
-                    <Play className="w-6 h-6 sm:w-8 sm:h-8 text-teal-600 ml-1" />
-                  </motion.div>
-                </motion.div>
+                  <span className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-white/95 text-teal-600 shadow-xl pointer-events-none">
+                    <Play className="w-6 h-6 sm:w-8 sm:h-8 ml-1" aria-hidden />
+                  </span>
+                </button>
               )}
-              <div className="absolute bottom-4 left-4 text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-lg">
+              <div className="pointer-events-none absolute bottom-4 left-4 z-[11] text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-lg">
                 Watch: How Our Retreat Planning Works
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

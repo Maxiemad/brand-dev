@@ -22,8 +22,9 @@ const ServicesSection: React.FC = () => {
         "On-site support (virtual or in-person)",
         "Emergency prep & risk management"
       ],
-      buttonText: "Book a Free Call",
-      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900"
+      buttonText: "Choose DFY – Starts at $999",
+      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691b2c6a0e600f4d085ef"
     },
     {
       tier: "TIER 2",
@@ -44,7 +45,7 @@ const ServicesSection: React.FC = () => {
       ],
       buttonText: "Get the Toolkit – $199",
       buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
-      paymentLink: true
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691eba6c96e61a84607db"
     },
     {
       tier: "TIER 3",
@@ -63,7 +64,8 @@ const ServicesSection: React.FC = () => {
         "Editable email templates included"
       ],
       buttonText: "Get Toolkit + Calls – $699",
-      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900"
+      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691cba6c96e61a84607da"
     }
   ];
 
@@ -226,25 +228,19 @@ const ServicesSection: React.FC = () => {
                     </div>
 
                     {/* CTA Button */}
-                    <motion.button
-                      className={`w-full py-4 ${plan.buttonColor} text-white rounded-xl font-semibold text-lg transition-all cursor-hover`}
+                    <motion.a
+                      href={plan.paymentUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`block w-full py-4 text-center ${plan.buttonColor} text-white rounded-xl font-semibold text-lg transition-all cursor-hover no-underline`}
                       whileHover={{ 
                         scale: 1.02,
                         y: -2
                       }}
                       whileTap={{ scale: 0.98 }}
-                      onClick={() => {
-                        if (plan.buttonText === "Get Toolkit + Calls – $699") {
-                          window.open('https://buy.stripe.com/00wbIT2PCaAA5Npafi77O01', '_blank');
-                        } else if (plan.buttonText === "Get the Toolkit – $199") {
-                          window.open('https://buy.stripe.com/7sYeV5ai4cII7Vx5Z277O00', '_blank');
-                        } else if (plan.buttonText === "Book a Free Call") {
-                          window.open('https://crm.gotoretreats.com/book/ash-kairos', '_blank');
-                        }
-                      }}
                     >
                       {plan.buttonText}
-                    </motion.button>
+                    </motion.a>
                   </div>
 
                   {/* Hover Glow Effect */}
