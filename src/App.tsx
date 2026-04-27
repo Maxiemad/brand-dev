@@ -9,6 +9,7 @@ import ServicesSection from './components/ServicesSection';
 import ServicesSlider from './components/ServicesSlider';
 import ComparisonSection from './components/ComparisonSection';
 import WhoWeHelpSection from './components/WhoWeHelpSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import EmailSubscriptionSection from './components/EmailSubscriptionSection';
 import FinalCTASection from './components/FinalCTASection';
@@ -56,6 +57,7 @@ function App() {
           <PainPointsSection />
           <SoulfulMethodology />
           <ServicesSection />
+          <TestimonialsSection />
           <ComparisonSection />
           <VenuesSection />
           <ServicesSlider />

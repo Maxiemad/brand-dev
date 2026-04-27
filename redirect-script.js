@@ -36,3 +36,4 @@ document.addEventListener('DOMContentLoaded', function() {
         redirectButton.addEventListener('click', redirectToPDFDownload);
     }
 });
+¸

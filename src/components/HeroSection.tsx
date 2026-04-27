@@ -43,11 +43,11 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-teal-50 relative overflow-hidden pt-20 sm:pt-24">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FAF7F2] to-[#F1E9DE] relative overflow-hidden pt-20 sm:pt-24">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-4 sm:left-10 w-16 h-16 sm:w-32 sm:h-32 bg-teal-400/20 rounded-full"
+          className="absolute top-20 left-4 sm:left-10 w-16 h-16 sm:w-32 sm:h-32 bg-[#D4C3B3]/30 rounded-full"
           animate={{
             y: [0, -20, 0],
             x: [0, 10, 0],
@@ -59,7 +59,7 @@ const HeroSection: React.FC = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-4 sm:right-10 w-12 h-12 sm:w-24 sm:h-24 bg-orange-400/20 rounded-full"
+          className="absolute bottom-20 right-4 sm:right-10 w-12 h-12 sm:w-24 sm:h-24 bg-[#E8DCC9]/40 rounded-full"
           animate={{
             y: [0, 20, 0],
             x: [0, -15, 0],
@@ -71,7 +71,7 @@ const HeroSection: React.FC = () => {
           }}
         />
         <motion.div
-          className="absolute top-1/2 right-1/4 w-8 h-8 sm:w-16 sm:h-16 bg-green-400/20 rounded-full"
+          className="absolute top-1/2 right-1/4 w-8 h-8 sm:w-16 sm:h-16 bg-[#B5A596]/20 rounded-full"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
@@ -93,64 +93,57 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#4A433D] leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Plan Your Retreat With{' '}
+            Helping retreat leaders launch, sell, and scale transformative retreats{' '}
             <motion.span
-              className="text-teal-600"
-              animate={{ color: ['#008C8D', '#10B981', '#008C8D'] }}
+              className="text-[#A68A71]"
+              animate={{ color: ['#A68A71', '#8C725D', '#A68A71'] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              Clarity
+              effortlessly
             </motion.span>
-            , Confidence, and Zero Overwhelm
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+            className="text-lg sm:text-xl text-[#756C62] leading-relaxed max-w-2xl mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Whether you're doing it yourself, need expert support, or want us to handle it all — we've got a path designed for you.
+            From idea to execution — we provide the tools, strategy, and support you need at every stage.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            className="flex flex-col gap-4 justify-center lg:justify-start"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.button
-              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-hover group w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-[#CBA381] text-white rounded-xl font-semibold text-lg hover:brightness-95 transition-all cursor-hover shadow-lg w-full sm:w-auto"
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 20px 40px rgba(0, 140, 141, 0.3)"
+                boxShadow: "0 20px 40px rgba(203, 163, 129, 0.3)"
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Explore 3 Flexible Retreat Planning Bundles
+              Start Planning Your Retreat
             </motion.button>
-
-            <motion.a
-              href="https://crm.gotoretreats.com/book/ash-kairos"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold text-base sm:text-lg hover:border-teal-600 hover:text-teal-600 transition-all cursor-hover group w-full sm:w-auto"
-              whileHover={{ 
-                scale: 1.05,
-                borderColor: '#0D9488',
-                color: '#0D9488'
-              }}
-              whileTap={{ scale: 0.95 }}
+            
+            <motion.div 
+              className="mt-4 text-sm text-[#8C8378] font-medium flex items-center justify-center lg:justify-start"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Phone className="mr-2 group-hover:animate-pulse" size={20} />
-              <span className="group-hover:text-teal-600">Book Your Free Consultation Call</span>
-            </motion.a>
+              <span className="w-1.5 h-1.5 bg-[#A68A71] rounded-full mr-2"></span>
+              Trusted by 50+ retreat leaders worldwide
+            </motion.div>
           </motion.div>
         </motion.div>
 
@@ -174,7 +167,7 @@ const HeroSection: React.FC = () => {
                   onClick={handlePlay}
                   aria-label="Play video"
                 >
-                  <span className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-white/95 text-teal-600 shadow-xl pointer-events-none">
+                  <span className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-[#FAF7F2]/95 text-[#A68A71] shadow-xl pointer-events-none">
                     <Play className="w-6 h-6 sm:w-8 sm:h-8 ml-1" aria-hidden />
                   </span>
                 </button>

@@ -6,34 +6,12 @@ const ServicesSection: React.FC = () => {
   const plans = [
     {
       tier: "TIER 1",
-      icon: Crown,
-      title: "DFY (Done For You)",
-      subtitle: "Show up. Teach. Transform. We handle the rest.",
-      price: "Starts at $999",
-      gradient: "from-purple-400 to-pink-500",
-      bgGradient: "from-purple-50 to-pink-50",
-      features: [
-        "Venue scouting + negotiation (3+ vetted options)",
-        "Guest communication flow: emails, forms, FAQs",
-        "Full itinerary co-creation",
-        "Contractor sourcing + coordination",
-        "Marketing checklist & launch calendar",
-        "Social media management",
-        "On-site support (virtual or in-person)",
-        "Emergency prep & risk management"
-      ],
-      buttonText: "Choose DFY – Starts at $999",
-      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
-      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691b2c6a0e600f4d085ef"
-    },
-    {
-      tier: "TIER 2",
       icon: Wrench,
       title: "DIY (Do It Yourself)",
-      subtitle: "A self-guided roadmap to plan your retreat from A to Z.",
+      subtitle: "Best for self-starters who want complete control",
       price: "$199",
-      gradient: "from-orange-400 to-red-500",
-      bgGradient: "from-orange-50 to-red-50",
+      gradient: "from-[#D4C3B3] to-[#B5A596]",
+      bgGradient: "from-[#FAF7F2] to-[#F1E9DE]",
       features: [
         "Budgeting tools + real examples",
         "Legal forms, guest intake & feedback forms",
@@ -48,33 +26,69 @@ const ServicesSection: React.FC = () => {
       paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691eba6c96e61a84607db"
     },
     {
-      tier: "TIER 3",
+      tier: "TIER 2",
       icon: Users,
       title: "DWY (Done With You)",
-      subtitle: "Self-starter? Get expert guidance along the way.",
-      price: "$699",
-      gradient: "from-teal-400 to-cyan-500",
-      bgGradient: "from-teal-50 to-cyan-50",
+      subtitle: "Perfect for creators who want expert guidance without doing it alone",
+      price: "$999",
+      gradient: "from-[#A68A71] to-[#8C725D]",
+      bgGradient: "from-[#FAF7F2] to-[#E8DCC9]",
       features: [
-        "Everything from DIY, plus:",
-        "6 private 1:1 strategy calls",
-        "Venue & logistics guidance",
-        "Voice note & email support between sessions",
-        "Custom retreat timeline",
-        "Editable email templates included"
+        "Includes everything in Tier 1, plus:",
+        "4 private 1:1 coaching & strategy calls with our Retreat Manager",
+        "Custom landing page designed by our GoTo Studio Team",
+        "Structured 4-phase retreat planning framework",
+        "Venue sourcing & logistics guidance",
+        "Financial planning (pricing, costs & profit structure)",
+        "Marketing launch plan & sales strategy",
+        "Operations planning & guest experience design",
+        "Guest communication templates & systems",
+        "Ongoing voice note & email support between sessions",
+        "Editable templates & planning tools"
       ],
-      buttonText: "Get Toolkit + Calls – $699",
+      buttonText: "Get Toolkit + Calls – $999",
       buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
       paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691cba6c96e61a84607da"
+    },
+    {
+      tier: "TIER 3",
+      icon: Crown,
+      title: "DFY (Done For You)",
+      subtitle: "Ideal for founders who want everything handled end-to-end",
+      price: "Starts at $1,999",
+      gradient: "from-[#CBA381] to-[#A68A71]",
+      bgGradient: "from-[#F1E9DE] to-[#E8DCC9]",
+      features: [
+        "Includes everything in Tier 1 and Tier 2, plus:",
+        "6 private 1:1 strategy calls (expanded support across all phases)",
+        "End-to-end retreat planning & execution support",
+        "Venue sourcing & negotiation (3 vetted options)",
+        "Marketing & sales launch strategy (Instagram + email)",
+        "Operations & guest experience design",
+        "Full itinerary co-creation",
+        "Contractor sourcing & coordination",
+        "Guest communication systems (emails, forms, FAQs)",
+        "Marketing checklist & launch calendar",
+        "Active management of logistics, vendors & key decisions",
+        "24-hour on-call support during the retreat",
+        "Emergency planning & risk management",
+        "On-site support (virtual or in-person)",
+        "On-site retreat management (available as an add-on)",
+        "Additional add-on services available"
+      ],
+      buttonText: "Choose DFY – Starts at $1,999",
+      buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691b2c6a0e600f4d085ef"
     }
   ];
 
   return (
-    <section id="plans" className="py-20 sm:py-28 relative overflow-hidden bg-gray-50">
+    <section id="plans" className="py-20 sm:py-28 relative overflow-hidden bg-[#FAF7F2]">
+      <div className="bg-noise"></div>
       {/* Premium Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#D4C3B3]/20 to-[#E8DCC9]/20 rounded-full blur-3xl"
           animate={{
             x: [0, 50, 0],
             y: [0, -30, 0],
@@ -87,7 +101,7 @@ const ServicesSection: React.FC = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-teal-400/20 to-cyan-400/20 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-[#B5A596]/20 to-[#A68A71]/20 rounded-full blur-3xl"
           animate={{
             x: [0, -40, 0],
             y: [0, 20, 0],
@@ -136,13 +150,13 @@ const ServicesSection: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 sm:gap-10">
+        <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 items-stretch">
           {plans.map((plan, index) => {
             const IconComponent = plan.icon;
             return (
               <motion.div
                 key={index}
-                className="group relative cursor-hover"
+                className="group relative cursor-hover h-full"
                 initial={{ opacity: 0, y: 50, rotateX: 45 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ 
@@ -152,27 +166,27 @@ const ServicesSection: React.FC = () => {
                   stiffness: 100
                 }}
                 viewport={{ once: true }}
-                whileHover={{ 
-                  y: -10,
-                  scale: 1.02
-                }}
               >
-                <motion.div
-                  className={`relative bg-white border border-gray-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden h-full`}
-                  whileHover={{
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                  }}
+                <div
+                  className={`relative bg-white border-2 ${index === 1 ? 'border-[#f59e0b] scale-[1.03] z-10' : 'border-transparent'} rounded-3xl p-8 shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 h-full flex flex-col`}
                 >
                   {/* Background Gradient */}
-                  <motion.div
+                  <div
                     className={`absolute inset-0 bg-gradient-to-br ${plan.bgGradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl`}
                   />
 
                   {/* Content */}
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col flex-grow">
+                    {/* Badge for Middle Tier */}
+                    {index === 1 && (
+                      <div className="absolute -top-3 -right-3 bg-[#f59e0b] text-white px-4 py-1 rounded-full text-xs font-bold shadow-md uppercase tracking-wider">
+                        Most Popular
+                      </div>
+                    )}
+
                     {/* Tier Badge */}
                     <motion.div
-                      className={`inline-flex items-center px-4 py-2 bg-gradient-to-r ${plan.gradient} text-white rounded-full text-sm font-bold mb-6`}
+                      className={`inline-flex items-center self-start px-4 py-2 bg-gradient-to-r ${plan.gradient} text-white rounded-full text-sm font-bold mb-6`}
                       whileHover={{ scale: 1.05 }}
                     >
                       {plan.tier}
@@ -180,7 +194,7 @@ const ServicesSection: React.FC = () => {
 
                     {/* Icon */}
                     <motion.div
-                      className="mb-6"
+                      className="mb-6 flex"
                       whileHover={{ 
                         rotate: [0, -10, 10, 0],
                         scale: 1.1
@@ -193,10 +207,10 @@ const ServicesSection: React.FC = () => {
                     </motion.div>
 
                     {/* Title & Subtitle */}
-                    <h3 className="font-bold text-gray-900 mb-2 text-xl">
+                    <h3 className="font-bold text-gray-900 mb-3 text-xl">
                       {plan.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                       {plan.subtitle}
                     </p>
 
@@ -209,7 +223,7 @@ const ServicesSection: React.FC = () => {
                     </motion.div>
 
                     {/* Features */}
-                    <div className="space-y-3 mb-8">
+                    <div className="space-y-4 mb-8 flex-grow">
                       {plan.features.map((feature, featureIndex) => (
                         <motion.div
                           key={featureIndex}
@@ -219,8 +233,8 @@ const ServicesSection: React.FC = () => {
                           transition={{ duration: 0.5, delay: featureIndex * 0.1 }}
                           viewport={{ once: true }}
                         >
-                          <div className="flex-shrink-0 w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-                          <p className="text-gray-700 text-sm leading-relaxed">
+                          <div className="flex-shrink-0 w-2 h-2 bg-[#A68A71] rounded-full mt-2"></div>
+                          <p className="text-[#756C62] text-sm leading-[1.5]">
                             {feature}
                           </p>
                         </motion.div>
@@ -228,26 +242,21 @@ const ServicesSection: React.FC = () => {
                     </div>
 
                     {/* CTA Button */}
-                    <motion.a
+                    <a
                       href={plan.paymentUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`block w-full py-4 text-center ${plan.buttonColor} text-white rounded-xl font-semibold text-lg transition-all cursor-hover no-underline`}
-                      whileHover={{ 
-                        scale: 1.02,
-                        y: -2
-                      }}
-                      whileTap={{ scale: 0.98 }}
+                      className={`mt-auto block w-full py-4 text-center ${plan.buttonColor} text-white rounded-xl font-semibold text-lg transition-all duration-250 hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(255,140,0,0.3)] cursor-hover no-underline`}
                     >
                       {plan.buttonText}
-                    </motion.a>
+                    </a>
                   </div>
 
                   {/* Hover Glow Effect */}
-                  <motion.div
+                  <div
                     className={`absolute -inset-0.5 bg-gradient-to-r ${plan.gradient} rounded-3xl opacity-0 group-hover:opacity-20 blur-sm transition-opacity duration-500 -z-10`}
                   />
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}

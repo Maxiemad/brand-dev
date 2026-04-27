@@ -72,11 +72,11 @@ const PainPointsSection: React.FC = () => {
             whileHover={{ scale: 1.05 }}
           >
             <span>👉</span>
-            <span className="font-semibold text-teal-600">It's time to shift from chaos to clarity.</span>
+            <span className="font-semibold text-[#A68A71]">It's time to shift from chaos to clarity.</span>
             
           </motion.p>
           <motion.div
-            className="w-16 sm:w-24 h-1 bg-gradient-to-r from-teal-600 to-green-500 mx-auto rounded-full"
+            className="w-16 sm:w-24 h-1 bg-gradient-to-r from-[#CBA381] to-[#A68A71] mx-auto rounded-full"
             animate={{ scaleX: [1, 1.2, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
