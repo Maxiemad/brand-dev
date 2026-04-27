@@ -67,7 +67,7 @@ const Header: React.FC = () => {
                 key={item}
                 className="text-gray-700 hover:text-teal-600 font-medium capitalize transition-colors text-sm xl:text-base"
                 whileHover={{ y: -2 }}
-                onClick={() => scrollToSection(item)}
+                onClick={() => scrollToSection(item === 'services' ? 'plans' : item)}
               >
                 {item}
               </motion.button>
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
                 <button
                   key={item}
                   className="block w-full text-left px-4 py-3 text-gray-700 hover:text-teal-600 capitalize text-lg font-medium"
-                  onClick={() => scrollToSection(item)}
+                  onClick={() => scrollToSection(item === 'services' ? 'plans' : item)}
                 >
                   {item}
                 </button>

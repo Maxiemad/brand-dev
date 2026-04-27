@@ -93,7 +93,7 @@ const FinalCTASection: React.FC = () => {
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Calendar className="w-6 h-6 group-hover:animate-pulse" />
+              <Phone className="w-6 h-6 group-hover:animate-pulse" />
             </motion.div>
             <motion.span
               animate={{
@@ -109,7 +109,7 @@ const FinalCTASection: React.FC = () => {
                 backgroundSize: '200% 200%',
               }}
             >
-              Book a Free Planning Call Now
+              Book a Discovery Call with Our Retreat Manager
             </motion.span>
           </motion.a>
         </motion.div>

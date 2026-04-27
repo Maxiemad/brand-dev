@@ -123,17 +123,34 @@ const HeroSection: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <motion.button
-              className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-[#CBA381] text-white rounded-xl font-semibold text-lg hover:brightness-95 transition-all cursor-hover shadow-lg w-full sm:w-auto"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 20px 40px rgba(203, 163, 129, 0.3)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Start Planning Your Retreat
-            </motion.button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+              <motion.button
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-[#CBA381] text-white rounded-xl font-semibold text-lg hover:brightness-95 transition-all cursor-hover shadow-lg w-full sm:w-auto"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(203, 163, 129, 0.3)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Start Planning Your Retreat
+              </motion.button>
+              
+              <motion.a
+                href="https://crm.gotoretreats.com/book/ash-kairos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-4 sm:py-5 bg-white text-[#8C725D] border-2 border-[#8C725D] rounded-xl font-semibold text-lg hover:bg-[#FAF7F2] transition-all cursor-hover shadow-lg w-full sm:w-auto text-center"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(140, 114, 93, 0.15)"
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Book a Discovery Call with Our Retreat Manager
+              </motion.a>
+            </div>
             
             <motion.div 
               className="mt-4 text-sm text-[#8C8378] font-medium flex items-center justify-center lg:justify-start"
