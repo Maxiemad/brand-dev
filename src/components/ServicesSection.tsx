@@ -23,7 +23,7 @@ const ServicesSection: React.FC = () => {
       ],
       buttonText: "Get the Toolkit – $199",
       buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
-      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691eba6c96e61a84607db"
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691eba6c96e61a84607db "
     },
     {
       tier: "TIER 2",
@@ -48,7 +48,7 @@ const ServicesSection: React.FC = () => {
       ],
       buttonText: "Get Toolkit + Calls – $999",
       buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
-      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691cba6c96e61a84607da"
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691cba6c96e61a84607da "
     },
     {
       tier: "TIER 3",
