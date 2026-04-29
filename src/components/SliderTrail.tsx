@@ -163,7 +163,7 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
         <div className="flex justify-between items-center">
           <motion.button
             onClick={handleScrollLeft}
-            className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-hover group"
+            className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer group"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Scroll left"
@@ -173,7 +173,7 @@ const SliderTrail: React.FC<SliderTrailProps> = ({
           
           <motion.button
             onClick={handleScrollRight}
-            className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-hover group"
+            className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer group"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Scroll right"

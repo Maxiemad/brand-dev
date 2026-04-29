@@ -115,7 +115,7 @@ const TestimonialsSection: React.FC = () => {
 
             {/* Navigation Buttons */}
             <motion.button
-              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all cursor-hover"
+              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={prevTestimonial}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -124,7 +124,7 @@ const TestimonialsSection: React.FC = () => {
             </motion.button>
 
             <motion.button
-              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all cursor-hover"
+              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={nextTestimonial}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -138,7 +138,7 @@ const TestimonialsSection: React.FC = () => {
             {testimonials.map((_, index) => (
               <motion.button
                 key={index}
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all cursor-hover ${
+                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all cursor-pointer ${
                   index === currentIndex ? 'bg-teal-600' : 'bg-gray-300'
                 }`}
                 onClick={() => setCurrentIndex(index)}

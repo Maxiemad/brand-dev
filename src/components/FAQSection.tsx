@@ -152,7 +152,7 @@ const FAQSection: React.FC = () => {
               >
                 {/* Question Button */}
                 <motion.button
-                  className="w-full px-6 sm:px-8 py-6 sm:py-8 text-left flex items-center justify-between cursor-hover group"
+                  className="w-full px-6 sm:px-8 py-6 sm:py-8 text-left flex items-center justify-between cursor-pointer group"
                   onClick={() => toggleFAQ(index)}
                   whileHover={{ backgroundColor: 'rgba(166, 138, 113, 0.05)' }}
                 >
@@ -256,7 +256,7 @@ const FAQSection: React.FC = () => {
             href="https://crm.gotoretreats.com/book/ash-kairos"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-[#FFA947] text-gray-900 rounded-xl font-semibold hover:brightness-95 transition-all cursor-hover shadow-lg"
+            className="inline-flex items-center px-6 py-3 bg-[#FFA947] text-gray-900 rounded-xl font-semibold hover:brightness-95 transition-all cursor-pointer shadow-lg"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(203, 163, 129, 0.3)"

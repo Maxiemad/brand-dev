@@ -61,7 +61,7 @@ const WhoWeHelpSection: React.FC = () => {
             return (
               <motion.div
                 key={index}
-                className="group text-center p-6 sm:p-8 rounded-xl bg-white hover:shadow-lg transition-all duration-300 cursor-hover border border-gray-200"
+                className="group text-center p-6 sm:p-8 rounded-xl bg-white hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-200"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}

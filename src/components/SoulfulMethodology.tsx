@@ -34,7 +34,7 @@ const SoulfulMethodology: React.FC = () => {
           {solutions.map((solution, index) => (
             <motion.div
               key={index}
-              className="group cursor-hover"
+              className="group cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -139,7 +139,7 @@ const SoulfulMethodology: React.FC = () => {
             href="https://crm.gotoretreats.com/book/ash-kairos"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-hover"
+            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-pointer"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(37, 99, 235, 0.3)"

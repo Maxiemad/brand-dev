@@ -50,7 +50,7 @@ const AuditSection: React.FC = () => {
             return (
               <motion.div
                 key={index}
-                className="group cursor-hover"
+                className="group cursor-pointer"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -99,7 +99,7 @@ const AuditSection: React.FC = () => {
             href="https://hello.gotoretreats.com/free-marketing-assessment"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-hover"
+            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-pointer"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(255, 255, 255, 0.3)"
@@ -119,7 +119,7 @@ const AuditSection: React.FC = () => {
             </div>
             <a 
               href="mailto:avi@gotoretreats.com" 
-              className="text-white font-semibold hover:underline cursor-hover text-sm sm:text-base"
+              className="text-white font-semibold hover:underline cursor-pointer text-sm sm:text-base"
             >
               avi@gotoretreats.com
             </a>

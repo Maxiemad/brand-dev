@@ -23,7 +23,7 @@ const ServicesSection: React.FC = () => {
       ],
       buttonText: "Get the Toolkit – $199",
       buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
-      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691eba6c96e61a84607db "
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691eba6c96e61a84607db"
     },
     {
       tier: "TIER 2",
@@ -48,7 +48,7 @@ const ServicesSection: React.FC = () => {
       ],
       buttonText: "Get Toolkit + Calls – $999",
       buttonColor: "bg-[#FFA947] hover:brightness-95 text-gray-900",
-      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691cba6c96e61a84607da "
+      paymentUrl: "https://crm.gotoretreats.com/payment-link/69d691cba6c96e61a84607da"
     },
     {
       tier: "TIER 3",
@@ -156,7 +156,7 @@ const ServicesSection: React.FC = () => {
             return (
               <motion.div
                 key={index}
-                className="group relative cursor-hover h-full"
+                className="group relative cursor-pointer h-full"
                 initial={{ opacity: 0, y: 50, rotateX: 45 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ 
@@ -246,7 +246,7 @@ const ServicesSection: React.FC = () => {
                       href={plan.paymentUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`mt-auto block w-full py-4 text-center ${plan.buttonColor} text-white rounded-xl font-semibold text-lg transition-all duration-250 hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(255,140,0,0.3)] cursor-hover no-underline`}
+                      className={`mt-auto block w-full py-4 text-center ${plan.buttonColor} text-white rounded-xl font-semibold text-lg transition-all duration-250 hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(255,140,0,0.3)] cursor-pointer no-underline`}
                     >
                       {plan.buttonText}
                     </a>
