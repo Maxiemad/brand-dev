@@ -6,16 +6,14 @@ const CustomCursor: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Check if device supports touch and hover
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // Use pointer/hover media only — NOT maxTouchPoints. Hybrid laptops (touch + mouse)
+    // report touch capability but still use a fine pointer; excluding them left cursor:none
+    // from index.html with no custom cursor (invisible pointer on the page).
     const supportsHover = window.matchMedia('(hover: hover)').matches;
     const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-    
-    // Only show custom cursor on devices that support hover and have fine pointer (desktop)
-    // Also check for user agent to ensure we're on a desktop browser
-    const isDesktop = !isTouchDevice && supportsHover && hasFinePointer;
-    
-    if (!isDesktop) {
+    const useCustomCursor = supportsHover && hasFinePointer;
+
+    if (!useCustomCursor) {
       return;
     }
 
@@ -74,13 +72,11 @@ const CustomCursor: React.FC = () => {
   // Handle media query changes
   useEffect(() => {
     const handleMediaChange = () => {
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
       const supportsHover = window.matchMedia('(hover: hover)').matches;
       const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-      
-      const isDesktop = !isTouchDevice && supportsHover && hasFinePointer;
-      
-      if (!isDesktop) {
+      const useCustomCursor = supportsHover && hasFinePointer;
+
+      if (!useCustomCursor) {
         setVisible(false);
       }
     };

@@ -13,7 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-      /* Hide default cursor only on non-touch devices where custom cursor is shown */
+      /* Hide default cursor when fine pointer + hover (includes touch laptops used with mouse).
+         Must match CustomCursor.tsx — do not gate on touch capability alone. */
       @media (hover: hover) and (pointer: fine) {
         * {
           cursor: none !important;
