@@ -1,49 +1,24 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Play } from 'lucide-react';
-import Player from '@vimeo/player';
+
+const HERO_VIDEO_SRC =
+  'https://assets.cdn.filesafe.space/ySINC5nOQO9jQivquBDe/media/6a02331ac56db4013f5c26ce.mp4';
 
 const HeroSection: React.FC = () => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [overlay, setOverlay] = useState(true);
 
-  const handlePlay = async () => {
+  const handlePlay = () => {
     setOverlay(false);
-    if (iframeRef.current) {
-      const player = new Player(iframeRef.current);
-      
-      try {
-        // First ensure audio is enabled
-        await player.setVolume(1);
-        await player.setMuted(false);
-        
-        // Then play the video with audio
-        await player.play();
-        
-        // Double-check after a short delay to ensure audio stays on
-        setTimeout(async () => {
-          try {
-            await player.setVolume(1);
-            await player.setMuted(false);
-          } catch (e) {
-            console.log('Volume check error:', e);
-          }
-        }, 1000);
-        
-      } catch (error) {
-        console.log('Video play error:', error);
-        // Fallback: try to play anyway
-        try {
-          await player.play();
-        } catch (e) {
-          console.log('Fallback play error:', e);
-        }
-      }
-    }
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    void video.play().catch((e) => console.log('Video play error:', e));
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FAF7F2] to-[#F1E9DE] relative overflow-hidden pt-20 sm:pt-24">
+    <section id="hero" className="min-h-screen flex items-start justify-center bg-gradient-to-br from-[#FAF7F2] to-[#F1E9DE] relative overflow-hidden pt-20 sm:pt-24 pb-14 sm:pb-16">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -84,7 +59,7 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 min-w-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-start relative z-10 min-w-0">
         {/* Left Column - Text & CTAs */}
         <motion.div
           className="min-w-0 space-y-6 sm:space-y-8 text-center lg:text-left"
@@ -164,17 +139,16 @@ const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <div className="relative mt-8 lg:mt-0 -mt-24 lg:-mt-28 min-w-0">
+        <div className="relative mt-8 lg:mt-0 min-w-0">
           <div className="relative rounded-3xl shadow-2xl w-full max-w-full aspect-video overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
             <div className="relative w-full h-full min-h-0 bg-black/50 overflow-hidden rounded-2xl">
-              <iframe
-                ref={iframeRef}
-                src="https://player.vimeo.com/video/1106920945?autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=1&muted=0&playsinline=1"
-                className="absolute inset-0 w-full h-full border-0"
-                style={{ width: '100%', height: '100%' }}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-                allowFullScreen
+              <video
+                ref={videoRef}
+                src={HERO_VIDEO_SRC}
+                className="absolute inset-0 h-full w-full object-cover"
+                playsInline
+                controls={!overlay}
+                preload="metadata"
                 title="GoToRetreats Video"
               />
               {overlay && (
