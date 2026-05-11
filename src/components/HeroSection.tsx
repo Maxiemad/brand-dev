@@ -18,9 +18,9 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-start justify-center bg-gradient-to-br from-[#FAF7F2] to-[#F1E9DE] relative overflow-hidden pt-20 sm:pt-24 pb-14 sm:pb-16">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+    <section id="hero" className="min-h-screen flex items-start justify-center bg-gradient-to-br from-[#FAF7F2] to-[#F1E9DE] relative pt-20 sm:pt-24 pb-14 sm:pb-16 overflow-x-clip">
+      {/* Animated Background Elements — clip here so section can extend layout without hiding oversized hero media */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-20 left-4 sm:left-10 w-16 h-16 sm:w-32 sm:h-32 bg-[#D4C3B3]/30 rounded-full"
           animate={{
@@ -59,10 +59,10 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-start relative z-10 min-w-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-8 lg:gap-10 items-start relative z-10 min-w-0 w-full">
         {/* Left Column - Text & CTAs */}
         <motion.div
-          className="min-w-0 space-y-6 sm:space-y-8 text-center lg:text-left"
+          className="min-w-0 space-y-6 sm:space-y-8 text-center lg:text-left lg:max-w-xl xl:max-w-2xl"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -112,7 +112,7 @@ const HeroSection: React.FC = () => {
               </motion.button>
               
               <motion.a
-                href="https://crm.gotoretreats.com/book/ash-kairos"
+                href="https://crm.gotoretreats.com/widget/bookings/meeting-with-carolina"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-4 sm:py-5 bg-white text-[#8C725D] border-2 border-[#8C725D] rounded-xl font-semibold text-lg hover:bg-[#FAF7F2] transition-all cursor-pointer shadow-lg w-full sm:w-auto text-center"
@@ -139,13 +139,13 @@ const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <div className="relative mt-8 lg:mt-0 min-w-0">
-          <div className="relative rounded-3xl shadow-2xl w-full max-w-full aspect-video overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
-            <div className="relative w-full h-full min-h-0 bg-black/50 overflow-hidden rounded-2xl">
+        <div className="relative mt-8 lg:mt-0 lg:-mt-2 min-w-0 w-full">
+          <div className="relative rounded-3xl shadow-2xl w-full max-w-full aspect-video max-h-[380px] sm:max-h-[400px] lg:max-h-[420px] overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
+            <div className="relative flex h-full min-h-0 w-full items-center justify-center overflow-hidden rounded-2xl bg-black">
               <video
                 ref={videoRef}
                 src={HERO_VIDEO_SRC}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="max-h-full max-w-full object-contain"
                 playsInline
                 controls={!overlay}
                 preload="metadata"

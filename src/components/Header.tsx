@@ -87,7 +87,7 @@ const Header: React.FC = () => {
               Free Audit
             </motion.a>
             <motion.a
-              href="https://crm.gotoretreats.com/book/ash-kairos"
+              href="https://crm.gotoretreats.com/widget/bookings/meeting-with-carolina"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 xl:px-4 py-2 text-sm xl:text-base bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
@@ -136,7 +136,7 @@ const Header: React.FC = () => {
                   Free Audit
                 </a>
                 <a
-                  href="https://crm.gotoretreats.com/book/ash-kairos"
+                  href="https://crm.gotoretreats.com/widget/bookings/meeting-with-carolina"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center px-4 py-3 bg-teal-600 text-white rounded-lg font-semibold text-lg"

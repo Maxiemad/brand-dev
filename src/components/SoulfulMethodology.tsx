@@ -136,7 +136,7 @@ const SoulfulMethodology: React.FC = () => {
           viewport={{ once: true }}
         >
           <motion.a
-            href="https://crm.gotoretreats.com/book/ash-kairos"
+            href="https://crm.gotoretreats.com/widget/bookings/meeting-with-carolina"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#FFA947] text-gray-900 rounded-lg font-semibold text-base sm:text-lg hover:brightness-95 transition-all cursor-pointer"
