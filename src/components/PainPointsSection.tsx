@@ -16,7 +16,7 @@ const PainPointsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section className="pt-6 pb-14 sm:pt-8 sm:pb-16 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 sm:mb-12"

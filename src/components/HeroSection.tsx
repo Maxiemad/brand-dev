@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-start justify-center bg-gradient-to-br from-[#FAF7F2] to-[#F1E9DE] relative pt-20 sm:pt-24 pb-14 sm:pb-16 overflow-x-clip">
+    <section id="hero" className="flex items-start justify-center bg-gradient-to-br from-[#FAF7F2] to-[#F1E9DE] relative pt-20 sm:pt-24 pb-8 sm:pb-10 overflow-x-clip">
       {/* Animated Background Elements — clip here so section can extend layout without hiding oversized hero media */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -141,11 +141,11 @@ const HeroSection: React.FC = () => {
 
         <div className="relative mt-8 lg:mt-0 lg:-mt-2 min-w-0 w-full">
           <div className="relative rounded-3xl shadow-2xl w-full max-w-full aspect-video max-h-[380px] sm:max-h-[400px] lg:max-h-[420px] overflow-hidden border-2 border-gray-300 bg-gray-100 p-2 shadow-[0_0_20px_rgba(156,163,175,0.2)]">
-            <div className="relative flex h-full min-h-0 w-full items-center justify-center overflow-hidden rounded-2xl bg-black">
+            <div className="relative h-full min-h-0 w-full overflow-hidden rounded-2xl bg-[#2a2a2a]">
               <video
                 ref={videoRef}
                 src={HERO_VIDEO_SRC}
-                className="max-h-full max-w-full object-contain"
+                className="absolute inset-0 h-full w-full object-cover"
                 playsInline
                 controls={!overlay}
                 preload="metadata"
